@@ -10,30 +10,62 @@ import Faq from "../components/Faq";
 import TvSection from "../components/TvSection";
 import LoginModal from "../components/LoginModal";
 import { useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 function Home() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const { ref: heroRef, inView: heroInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+  const { ref: iconsRef, inView: iconsInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
   return (
     <div>
       <div className="bg-[linear-gradient(to_bottom,_rgb(212,190,190)_8%,_rgb(30,41,59)_15%)] lg:bg-[linear-gradient(to_bottom,_rgb(212,190,190)_30%,_rgb(30,41,59)_35%)] w-full h-full px-4 lg:px-30">
-        <div className="flex flex-col pt-36 lg:pt-50">
-          <h1 className="text-3xl lg:text-[55px] uppercase !font-black text-emerald-500">
+        <div ref={heroRef} className="flex flex-col pt-36 lg:pt-50">
+          <h1
+            className={`text-3xl lg:text-[55px] uppercase !font-black text-emerald-500 ${
+              heroInView
+                ? "animate__animated animate__bounceInDown animate__slow"
+                : ""
+            }`}
+          >
             Trade the market Not your savings
           </h1>
-          <p className="text-white text-xs lg:text-lg font-extrabold uppercase leading-8">
+
+          <p
+            className={`text-white text-xs lg:text-lg font-extrabold uppercase leading-8 ${
+              heroInView
+                ? "animate__animated animate__bounceInLeft animate__slow"
+                : ""
+            }`}
+          >
             We fund disciplined traders with real capital and expert guidance{" "}
             <br />
             so they can grow without risking their own money
           </p>
+
           <button
-            className="border-2 !text-white text-lg font-extrabold w-60 p-4 mt-4 cursor-pointer"
+            className={`border-2 !text-white text-lg font-extrabold w-60 p-4 mt-4 cursor-pointer ${
+              heroInView
+                ? "animate__animated animate__bounceInRight animate__slow"
+                : ""
+            }`}
             onClick={() => setIsLoginOpen(true)}
           >
             EARN FUNDING
           </button>
         </div>
 
-        <div className="flex flex-col justify-center lg:flex-row gap-10 mt-20 lg:mt-60 items-center">
+        <div
+          ref={iconsRef}
+          className={`flex flex-col justify-center lg:flex-row gap-10 mt-20 lg:mt-60 items-center 
+    ${iconsInView ? "animate__animated animate__slideInUp animate__slow" : ""}`}
+        >
           {[
             {
               icon: <FaTradeFederation size={80} />,

@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import { Autoplay, EffectCoverflow } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { useInView } from "react-intersection-observer";
 const videos = [
   {
     url: "https://www.youtube.com/embed/BZbChKzedEk?feature=oembed&autoplay=1&rel=0&controls=0",
@@ -47,6 +47,14 @@ const videos = [
 ];
 
 function TvSection() {
+  const { ref: leftCardRef, inView: isLeftCardInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+  const { ref: rightCardRef, inView: isRightCardInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
   return (
     <div className="bg-black flex flex-col items-center text-white py-20">
       <h1 className="text-green-300 text-xl !font-black">ZYONTRADER TV</h1>
@@ -116,7 +124,14 @@ function TvSection() {
 
       <div className="flex flex-col lg:flex-row w-full justify-evenly gap-12 px-4 text-justify ">
         {/* Left Card */}
-        <div className="flex flex-col items-center w-full lg:w-[50%] text-justify px-8">
+        <div
+          ref={leftCardRef}
+          className={`flex flex-col items-center w-full lg:w-[50%] text-justify px-8 ${
+            isLeftCardInView
+              ? "animate__animated animate__slideInLeft animate__slow"
+              : ""
+          }`}
+        >
           <GiSwordClash size={40} className="text-green-300" />
           <h1 className="!font-black text-4xl !mb-9">Alpha Clash</h1>
           <ul className="text-lg ">
@@ -140,7 +155,14 @@ function TvSection() {
           </button>
         </div>
 
-        <div className="flex flex-col items-center w-full lg:w-[50%] lg:border-l-2 text-justify px-8">
+        <div
+          ref={rightCardRef}
+          className={`flex flex-col items-center w-full lg:w-[50%] lg:border-l-2 text-justify px-8 ${
+            isRightCardInView
+              ? "animate__animated animate__slideInRight animate__slow"
+              : ""
+          } `}
+        >
           <VscGraph size={40} className="text-green-300" />
           <h1 className="!font-black text-3xl !mb-9">GET FUNDED</h1>
           <ul className="text-lg">

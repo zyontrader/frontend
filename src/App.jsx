@@ -21,7 +21,7 @@ function App() {
     <>
       <Topbar />
       <Header />
-      <div className="min-h-24">
+      <div className="min-h-24 overflow-hidden">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/how-it-works" element={<Howitworks />} />

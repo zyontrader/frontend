@@ -1,17 +1,14 @@
-import {
-  QuestionCircleFilled,
-  QuestionCircleOutlined,
-  RightOutlined,
-} from "@ant-design/icons";
+import { RightOutlined } from "@ant-design/icons";
 import { Collapse } from "antd";
-import React from "react";
 import { FaRegQuestionCircle } from "react-icons/fa";
-
+import { useInView } from "react-intersection-observer";
 function Faq() {
+  const { ref: faqRef, inView: isFaqInView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
   const text = `
-    A dog is a type of domesticated animal.
-    Known for its loyalty and faithfulness,
-    it can be found as a welcome guest in many households across the world.
+  You’ll receive access to a funded account to trade with real capital.
   `;
 
   const items = [
@@ -55,7 +52,14 @@ function Faq() {
 
   return (
     <div className="bg-black text-white py-30 flex flex-col px-2">
-      <div className="flex justify-center items-center gap-3 mx-auto">
+      <div
+        ref={faqRef}
+        className={`flex justify-center items-center gap-3 mx-auto ${
+          isFaqInView
+            ? "animate__animated animate__slideInUp animate__slow"
+            : ""
+        }`}
+      >
         <FaRegQuestionCircle className="text-5xl text-white mt-1" />
         <div className="h-10 content-center">
           <h1 className="text-4xl !font-extrabold text-white leading-none">
