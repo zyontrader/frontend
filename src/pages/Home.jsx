@@ -146,72 +146,87 @@ function Home() {
             account in the real account.
           </p>
 
-          <div className="flex flex-col lg:flex-row gap-10 items-center px-4 my-10 w-full">
-            <div className="flex flex-col gap-y-6 justify-center text-center lg:text-right w-full lg:w-auto ">
-              <p className="text-white text-sm font-bold">MONTHLY PRICE</p>
-              <p className="text-white text-sm font-bold">PROFIT TARGET</p>
-              <p className="text-white text-sm font-bold">
+          <div className="flex flex-row items-start lg:px-4 my-10 w-full">
+            {/* Left labels section */}
+            <div className="flex flex-col gap-y-6 justify-center text-right w-auto pr-3 border-white h-96 border-r">
+              <p className="text-white text-xs lg:text-sm font-bold">
+                MONTHLY PRICE
+              </p>
+              <p className="text-white text-xs lg:text-sm font-bold">
+                PROFIT TARGET
+              </p>
+              <p className="text-white text-xs lg:text-sm font-bold">
                 CONSISTENCY RULES APPLIES
               </p>
-              <p className="text-white text-sm font-bold">MAXIMUM LOSS LIMIT</p>
+              <p className="text-white text-xs lg:text-sm font-bold">
+                MAXIMUM LOSS LIMIT
+              </p>
             </div>
 
-            {[
-              {
-                label: "SIMULATED",
-                amount: "500K",
-                price: "Rs 499 / MONTH",
-                profit: "Rs 25000",
-                consistency: "YES - SEE FAQ",
-                loss: "Rs 25000",
-              },
-              {
-                label: "SIMULATED",
-                amount: "1000K",
-                price: "Rs 999 / MONTH",
-                profit: "Rs 50000",
-                consistency: "YES - SEE FAQ",
-                loss: "Rs 50000",
-              },
-              {
-                label: "LIVE",
-                amount: "1500K",
-                price: "Rs 20000 ONE TIME",
-                profit: "NONE 80% PROFIT YOURS",
-                consistency: "NO",
-                loss: "Rs 20000",
-              },
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="flex flex-col justify-center w-full lg:w-[300px] h-96 bg-white relative overflow-hidden shadow-lg rounded"
-              >
-                <div className="absolute top-3 right-[-40px] w-[170px] bg-black text-white text-sm font-bold py-1.5 text-center rotate-45 z-10 shadow-md pl-6">
-                  {item.label}
-                </div>
-                <div className="flex flex-col items-center px-8 pt-4">
-                  <h1 className="text-5xl !font-black text-black">
-                    <span className="align-top text-sm mr-1">Rs</span>
-                    {item.amount}
-                  </h1>
-                  <p className="!font-black text-sm mt-1">Account Margin</p>
-                  <div className="w-full space-y-2 mt-4">
-                    {[item.price, item.profit, item.consistency, item.loss].map(
-                      (text, i) => (
-                        <div key={i}>
-                          <p className="text-sm font-medium text-center text-gray-600">
-                            {text}
-                          </p>
-                        </div>
-                      )
-                    )}
+            {/* Scrollable cards container */}
+            <div className="w-full overflow-x-auto lg:overflow-visible">
+              <div className="flex justify-around gap-4 px-4">
+                {[
+                  {
+                    label: "SIMULATED",
+                    amount: "500K",
+                    price: "Rs 499 / MONTH",
+                    profit: "Rs 25000",
+                    consistency: "YES - SEE FAQ",
+                    loss: "Rs 25000",
+                  },
+                  {
+                    label: "SIMULATED",
+                    amount: "1000K",
+                    price: "Rs 999 / MONTH",
+                    profit: "Rs 50000",
+                    consistency: "YES - SEE FAQ",
+                    loss: "Rs 50000",
+                  },
+                  {
+                    label: "LIVE",
+                    amount: "1500K",
+                    price: "Rs 20000 ONE TIME",
+                    profit: "NONE 80% PROFIT YOURS",
+                    consistency: "NO",
+                    loss: "Rs 20000",
+                  },
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="flex-shrink-0 lg:w-[300px] h-96 bg-white relative overflow-hidden shadow-lg rounded"
+                  >
+                    <div className="absolute top-3 right-[-40px] w-[170px] bg-black text-white text-sm font-bold py-1.5 text-center rotate-45 z-10 shadow-md pl-6">
+                      {item.label}
+                    </div>
+                    <div className="flex flex-col items-center px-8 pt-4">
+                      <h1 className="text-5xl !font-black text-black">
+                        <span className="align-top text-sm mr-1">Rs</span>
+                        {item.amount}
+                      </h1>
+                      <p className="!font-black text-sm mt-1">Account Margin</p>
+                      <div className="w-full space-y-2 mt-4">
+                        {[
+                          item.price,
+                          item.profit,
+                          item.consistency,
+                          item.loss,
+                        ].map((text, i) => (
+                          <div key={i}>
+                            <p className="text-sm font-medium text-center text-gray-600">
+                              {text}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                      <button className="mt-4 bg-black !text-white font-bold py-2 px-6 w-[70%] rounded cursor-pointer">
+                        SELECT
+                      </button>
+                    </div>
                   </div>
-                  <button className="mt-4 bg-black !text-white font-bold py-2 px-6 w-[70%] rounded cursor-pointer">
-                    SELECT
-                  </button>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
 
           <p className="text-white text-sm lg:text-lg text-center w-[95%]">
