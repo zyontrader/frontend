@@ -1,3 +1,4 @@
+import { FaWhatsapp } from "react-icons/fa";
 import { Route, Routes } from "react-router";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -21,7 +22,12 @@ function App() {
     <>
       <Topbar />
       <Header />
-      <div className="min-h-24 overflow-hidden">
+      <div className="min-h-24 overflow-hidden relative">
+        <div className="hidden lg:block bg-green-600 h-16 w-16  p-2 rounded-full fixed bottom-4 right-4 cursor-pointer">
+          <a href="https://api.whatsapp.com/resolve/?deeplink=%2F91XXXXXXXXXX&not_found=1">
+            <FaWhatsapp className="text-white" size={48} />
+          </a>
+        </div>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/how-it-works" element={<Howitworks />} />
