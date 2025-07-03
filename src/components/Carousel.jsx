@@ -58,7 +58,7 @@ function Carousel() {
             <p className="font-medium text-sm lg:text-base">
               {msg.description}
             </p>
-            <button className="border-2 px-6 py-3 rounded !font-bold cursor-pointer">
+            <button className="border-2 px-6 py-3 rounded !font-bold cursor-pointer hover:scale-110 hover:backdrop-blur-lg transition-all duration-500">
               Click Here
             </button>
           </div>

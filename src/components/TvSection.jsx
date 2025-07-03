@@ -148,10 +148,11 @@ function TvSection() {
             </li>
           </ul>
           <button
-            className="bg-green-300 !text-black flex gap-3 px-4 py-4 rounded font-bold mt-6 cursor-pointer"
+            className="bg-emerald-500 text-white flex items-center gap-3 px-6 py-3 rounded-lg font-bold mt-6 cursor-pointer
+             shadow-md hover:bg-emerald-600 hover:scale-105 transition-all duration-300"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            Join The Contest <CiFlag1 className="text-black" size={24} />
+            Join The Contest <CiFlag1 className="text-white" size={24} />
           </button>
         </div>
 
@@ -183,10 +184,11 @@ function TvSection() {
             </li>
           </ul>
           <button
-            className="bg-green-300 !text-black flex gap-3 px-4 py-4 rounded font-bold mt-6 cursor-pointer"
+            className="bg-emerald-500 text-white flex items-center gap-3 px-6 py-3 rounded-lg font-bold mt-6 cursor-pointer
+             shadow-md hover:bg-emerald-600 hover:scale-105 transition-all duration-300"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
-            Get Funded <FaHandPointRight className="text-black" size={24} />
+            Get Funded <FaHandPointRight className="text-white" size={24} />
           </button>
         </div>
       </div>
