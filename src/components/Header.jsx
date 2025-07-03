@@ -10,7 +10,7 @@ function Header() {
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   return (
-    <div className="sticky top-0 z-50 bg-[linear-gradient(rgb(0,0,0)_70%,rgba(30,41,59,0.6)_100%)]">
+    <div className="sticky top-0 z-50 bg-[linear-gradient(rgb(0,0,0)_70%,rgba(30,41,59,1)_100%)]">
       <div className="h-20 w-full px-6 lg:px-15  text-white relative">
         <Flex justify="space-between" align="center" className="h-full">
           <div>

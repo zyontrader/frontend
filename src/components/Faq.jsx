@@ -1,4 +1,4 @@
-import { RightOutlined } from "@ant-design/icons";
+import { PlusOutlined } from "@ant-design/icons";
 import { Collapse } from "antd";
 import { FaRegQuestionCircle } from "react-icons/fa";
 import { useInView } from "react-intersection-observer";
@@ -70,10 +70,11 @@ function Faq() {
 
       <div className="mt-8 px-6 lg:px-10 w-[70%] mx-auto">
         <Collapse
+          accordion
           items={items}
           bordered={false}
           expandIcon={({ isActive }) => (
-            <RightOutlined
+            <PlusOutlined
               rotate={isActive ? 90 : 0}
               style={{ color: "white", fontSize: 20 }}
             />
