@@ -5,9 +5,9 @@ import { ImCross } from "react-icons/im";
 import { TiTick } from "react-icons/ti";
 function CardSection() {
   return (
-    <div className="bg-black px-8 pt-20">
-      <div className="flex flex-col lg:flex-row justify-evenly">
-        <div className="w-90 relative overflow-hidden rounded-sm">
+    <div className="bg-black px-8 pt-8">
+      <div className="flex flex-col sm:flex-row md:justify-between lg:justify-evenly">
+        <div className="w-90 relative overflow-hidden rounded-sm ">
           <img src={img} alt="" className="object-contain w-full h-full" />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black z-0" />
           <div className="absolute bottom-0 w-full text-white z-10 p-4">

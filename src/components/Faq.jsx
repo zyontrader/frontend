@@ -68,7 +68,7 @@ function Faq() {
         </div>
       </div>
 
-      <div className="mt-8 px-6 lg:px-10 w-[70%] mx-auto">
+      <div className="mt-8 px-6 lg:px-10 w-[100%] md:w-[70%] xl:w-[60%] mx-auto">
         <Collapse
           accordion
           items={items}

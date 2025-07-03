@@ -17,15 +17,15 @@ function Footer() {
   const [isNewsOpen, setIsNewsOpen] = useState(false);
   const [isExtrasOpen, setIsExtrasOpen] = useState(false);
   return (
-    <div className="bg-black text-white px-10 py-10">
+    <div className="bg-black text-white px-8 py-10">
       {/* Upper Part */}
       <div>
         <Row>
           {/* First Column */}
           <Col span={0} lg={9}>
-            <div className="w-full h-[530px] border-b-2 border-r-2  flex flex-col gap-4">
+            <div className="w-full min-h-[540px]  flex flex-col gap-2 ">
               {/* ➤ Top: 4 resource columns in a row */}
-              <div className="flex flex-row gap-6">
+              <div className="flex flex-row flex-wrap gap-4">
                 {/* Column 1 */}
                 <div className="flex flex-col">
                   <h4>RESOURCES</h4>
@@ -80,7 +80,7 @@ function Footer() {
 
           {/* Second Column */}
           <Col span={24} lg={9}>
-            <div className="w-full h-[530px] lg:border-b-2 lg:border-r-2 lg:px-8">
+            <div className=" w-full min-h-[540px] lg:px-8">
               <div className="flex justify-evenly">
                 <FacebookFilled
                   style={{ fontSize: 30 }}
@@ -108,7 +108,7 @@ function Footer() {
                 />
               </div>
 
-              <div className="block lg:hidden mt-10  w-full pl-4 font-bold text-lg">
+              <div className="block md:hidden mt-10  w-full pl-4 font-bold text-lg">
                 <div
                   className="flex justify-start items-center gap-4 active:!bg-gray-500 border-b-3 mt-4 py-2"
                   onClick={() => setIsResourcesOpen((prev) => !prev)}
@@ -217,7 +217,7 @@ function Footer() {
           {/* Third Column */}
           <Col span={24} lg={6}>
             {" "}
-            <div className="mt-76 lg:mt-0 w-full h-[530px] px-8 border-b-2">
+            <div className="mt-76 lg:mt-0 w-full min-h-[540px] px-8 ">
               <div className="flex flex-col">
                 <img
                   className="lg:w-48 cursor-pointer"
@@ -255,7 +255,7 @@ function Footer() {
           </Col>
         </Row>
       </div>
-
+      <hr className="my-4" />
       {/* Lower Part */}
       <div className="mt-14 ">
         <Row>
