@@ -220,7 +220,7 @@ function Home() {
                           </div>
                         ))}
                       </div>
-                      <button className="mt-4 bg-black hover:scale-120 transition duration-300  !text-white font-bold py-2 px-6 w-[70%] rounded cursor-pointer">
+                      <button className="mt-4 bg-black hover:scale-110 transition-all duration-500  !text-white font-bold py-2 px-6 w-[70%] rounded cursor-pointer">
                         SELECT
                       </button>
                     </div>
