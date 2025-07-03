@@ -262,14 +262,14 @@ function Footer() {
         <Row>
           <Col span={24} lg={18}>
             <div className="flex flex-col text-justify">
-              <p className="leading-5 text-[9px] lg:text-xs font-bold">
+              <p className="leading-5 text-[9px] lg:text-xs ">
                 <span className="font-bold">Allowed Instruments: </span>
                 Topstep traders are allowed to trade Futures products only,
                 listed on the following exchanges: CME, COMEX, NYMEX & CBOT.
                 Trading of Stocks, Options, Forex, Cryptocurrency and CFD’s are
                 not permitted nor available in our program or platforms.
               </p>
-              <p className="leading-5 text-[9px] lg:text-xs font-bold">
+              <p className="leading-5 text-[9px] lg:text-xs ">
                 <span className="font-bold">
                   Trader Evaluation Disclaimer:{" "}
                 </span>
@@ -278,7 +278,7 @@ function Footer() {
                 experienced traders. The Trading Combine is not suggested for
                 individuals with minimal trading experience.
               </p>
-              <p className="leading-5 text-[9px] lg:text-xs font-bold">
+              <p className="leading-5 text-[9px] lg:text-xs ">
                 <span className="font-bold">
                   2024 Trader Performance Statistics:{" "}
                 </span>
@@ -296,7 +296,7 @@ function Footer() {
                 environment and a live trading environment and are not
                 indicative of future results
               </p>
-              <p className="leading-5 text-[9px] lg:text-xs font-bold">
+              <p className="leading-5 text-[9px] lg:text-xs ">
                 To promote responsible trading and mitigate Prohibited Conduct,
                 such as exploiting the simulated environment, trading activity
                 will be subject to review by our Risk and Compliance Teams. If
@@ -307,7 +307,7 @@ function Footer() {
                 discretion, Topstep may ban the trader from using all or a
                 portion of the Site and Services.
               </p>
-              <p className="leading-5 text-[9px] lg:text-xs font-bold">
+              <p className="leading-5 text-[9px] lg:text-xs ">
                 All content published and distributed by Topstep LLC and its
                 affiliates (collectively, the “Company”) is to be treated as
                 general information only. None of the information provided by
@@ -323,7 +323,7 @@ function Footer() {
                 responsibility or liability for any use or misuse of such
                 information.
               </p>
-              <p className="leading-5 text-[9px] lg:text-xs font-bold">
+              <p className="leading-5 text-[9px] lg:text-xs ">
                 {" "}
                 Futures trading contains substantial risk and is not for every
                 investor. An investor could potentially lose all or more than
@@ -335,7 +335,7 @@ function Footer() {
                 futures, options, or forex. Past performance is not necessarily
                 indicative of future results.
               </p>
-              <p className="leading-5 text-[9px] lg:text-xs font-bold">
+              <p className="leading-5 text-[9px] lg:text-xs ">
                 CFTC Rule 4.41 – Hypothetical or Simulated performance results
                 have certain limitations. Unlike an actual performance record,
                 simulated results do not represent actual trading. Also, because
@@ -347,7 +347,7 @@ function Footer() {
                 being made that any account will or is likely to achieve profit
                 or losses similar to those shown.
               </p>
-              <p className="leading-5 text-[9px] lg:text-xs font-bold">
+              <p className="leading-5 text-[9px] lg:text-xs ">
                 <span className="font-bold">TopstepTV Disclaimer: </span>
                 All opinions expressed by TopstepTV LLC show participants,
                 hosts, guests, and personalities (collectively, “Show
@@ -365,7 +365,7 @@ function Footer() {
                 compensation from TopstepTV LLC is related to the specific
                 opinions they express.
               </p>
-              <p className="leading-5 text-[9px] lg:text-xs font-bold">
+              <p className="leading-5 text-[9px] lg:text-xs ">
                 Past performance is not indicative of future results. Neither
                 the Show Participants nor TopstepTV LLC guarantee any specific
                 outcome or profit in any manner. Further, you should be aware of
@@ -376,7 +376,7 @@ function Footer() {
                 should make your own independent decision regarding any
                 strategies or investments.
               </p>
-              <p className="leading-5 text-[9px] lg:text-xs font-bold">
+              <p className="leading-5 text-[9px] lg:text-xs ">
                 This material does not take into account your particular
                 investment objectives, financial situation or needs, and the
                 material is not intended as any form of recommendation
