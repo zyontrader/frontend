@@ -25,7 +25,7 @@ function Home() {
 
   return (
     <div>
-      <div className="bg-[linear-gradient(to_bottom,_rgb(212,190,190)_8%,_rgb(30,41,59)_15%)] lg:bg-[linear-gradient(to_bottom,_rgb(212,190,190)_30%,_rgb(30,41,59)_35%)] w-full h-full px-4 lg:px-30">
+      <div className="bg-[linear-gradient(to_bottom,_rgb(0,0,10)_8%,_rgb(30,41,59)_15%)] lg:bg-[linear-gradient(to_bottom,_rgb(0,0,10)_10%,_rgb(30,41,49)_35%)] w-full h-full px-4 lg:px-30">
         <div ref={heroRef} className="flex flex-col pt-36 lg:pt-50">
           <h1
             className={`text-3xl lg:text-[55px] uppercase !font-black text-emerald-500 ${
@@ -50,11 +50,12 @@ function Home() {
           </p>
 
           <button
-            className={`border-2 !text-white text-lg font-extrabold w-60 p-4 mt-4 cursor-pointer ${
-              heroInView
-                ? "animate__animated animate__bounceInRight animate__slow"
-                : ""
-            }`}
+            className={`w-60 p-4 mt-4 text-lg font-extrabold rounded-lg cursor-pointer 
+    bg-white/10 border border-emerald-500 !text-emerald-400 
+    backdrop-blur-md shadow-lg hover:bg-emerald-500 hover:!text-white transition-all duration-300
+    ${
+      heroInView ? "animate__animated animate__bounceInRight animate__slow" : ""
+    }`}
             onClick={() => setIsLoginOpen(true)}
           >
             EARN FUNDING
@@ -114,7 +115,7 @@ function Home() {
               challenges on every expiry
             </p>
             <button
-              className="border-2 !text-white text-lg font-extrabold w-[50%] p-4 mt-6 cursor-pointer"
+              className="w-[50%] p-4 mt-6 text-lg font-extrabold rounded-lg cursor-pointer bg-white/10 border border-emerald-500 !text-emerald-400 backdrop-blur-md shadow-md hover:bg-emerald-500 hover:!text-white transition-all duration-300"
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             >
               EXPLORE HOW IT WORKS
@@ -219,7 +220,7 @@ function Home() {
                           </div>
                         ))}
                       </div>
-                      <button className="mt-4 bg-black !text-white font-bold py-2 px-6 w-[70%] rounded cursor-pointer">
+                      <button className="mt-4 bg-black hover:scale-120 transition duration-300  !text-white font-bold py-2 px-6 w-[70%] rounded cursor-pointer">
                         SELECT
                       </button>
                     </div>

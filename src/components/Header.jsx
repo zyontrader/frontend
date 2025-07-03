@@ -118,12 +118,12 @@ function Header() {
               open={isLoginOpen}
               onClose={() => setIsLoginOpen(false)}
             />
-            <button
-              className="bg-white h-15 w-40 px-3 cursor-pointer hover:bg-amber-100"
+            {/* <button
+              className="bg-white h-15 w-40 px-3 cursor-pointer hover:bg-emerald-300 transition duration-500 rounded-full"
               onClick={() => setIsLoginOpen(true)}
             >
               EARN FUNDING
-            </button>
+            </button> */}
           </div>
 
           <div
