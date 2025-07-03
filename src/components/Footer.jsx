@@ -3,14 +3,12 @@ import {
   FacebookFilled,
   InstagramOutlined,
   LinkedinFilled,
-  PlusOutlined,
   TwitterOutlined,
   YoutubeFilled,
 } from "@ant-design/icons";
 import { Col, Row } from "antd";
 import { useState } from "react";
-import { FaRegHospital } from "react-icons/fa";
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaRegHospital } from "react-icons/fa";
 import { Link } from "react-router";
 
 function Footer() {
@@ -25,7 +23,7 @@ function Footer() {
         <Row>
           {/* First Column */}
           <Col span={0} lg={9}>
-            <div className="w-full h-[400px] border-b-2 border-r-2  flex flex-col gap-4">
+            <div className="w-full h-[530px] border-b-2 border-r-2  flex flex-col gap-4">
               {/* ➤ Top: 4 resource columns in a row */}
               <div className="flex flex-row gap-6">
                 {/* Column 1 */}
@@ -86,27 +84,27 @@ function Footer() {
               <div className="flex justify-evenly">
                 <FacebookFilled
                   style={{ fontSize: 30 }}
-                  className="cursor-pointer"
+                  className="cursor-pointer hover:!text-blue-600 transition-colors duration-300"
                 />
                 <YoutubeFilled
                   style={{ fontSize: 30 }}
-                  className="cursor-pointer"
+                  className="cursor-pointer hover:!text-red-600 transition-colors duration-300"
                 />
                 <InstagramOutlined
                   style={{ fontSize: 30 }}
-                  className="cursor-pointer"
+                  className="cursor-pointer hover:!text-[#E4405F] transition-colors duration-300"
                 />
                 <TwitterOutlined
                   style={{ fontSize: 30 }}
-                  className="cursor-pointer"
+                  className="cursor-pointer hover:!text-sky-400 transition-colors duration-300"
                 />
                 <LinkedinFilled
                   style={{ fontSize: 30 }}
-                  className="cursor-pointer"
+                  className="cursor-pointer hover:!text-blue-600 transition-colors duration-300"
                 />
                 <DiscordFilled
                   style={{ fontSize: 30 }}
-                  className="cursor-pointer"
+                  className="cursor-pointer hover:!text-[#5865F2] transition-colors duration-300"
                 />
               </div>
 
@@ -184,7 +182,8 @@ function Footer() {
                 <input
                   id="newsletter"
                   type="text"
-                  className="w-full bg-white h-12 px-4 !text-black outline-0"
+                  className="w-full bg-white h-12 px-4 !text-black outline-0 rounded-md text-xl"
+                  placeholder="johndoe@gmail.com"
                   required
                 />
               </div>
@@ -207,7 +206,7 @@ function Footer() {
                   from these communications at any time.
                 </div>
                 <div className="mt-8">
-                  <button className="border-2 p-4 w-full lg:w-[35%] font-bold text-xl cursor-pointer">
+                  <button className="rounded-full border-2 hover:border-emerald-500 hover:!text-emerald-500 p-4 w-full lg:w-[35%] font-bold text-xl cursor-pointer">
                     SUBMIT
                   </button>
                 </div>
@@ -218,7 +217,7 @@ function Footer() {
           {/* Third Column */}
           <Col span={24} lg={6}>
             {" "}
-            <div className="mt-76 lg:mt-28 w-full h-[450px] px-8 border-b-2">
+            <div className="mt-76 lg:mt-0 w-full h-[530px] px-8 border-b-2">
               <div className="flex flex-col">
                 <img
                   className="lg:w-48 cursor-pointer"
