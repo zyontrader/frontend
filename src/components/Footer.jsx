@@ -4,6 +4,7 @@ import {
   InstagramOutlined,
   LinkedinFilled,
   TwitterOutlined,
+  XOutlined,
   YoutubeFilled,
 } from "@ant-design/icons";
 import { Col, Row } from "antd";
@@ -15,25 +16,25 @@ function Footer() {
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const [isNewsOpen, setIsNewsOpen] = useState(false);
-  const [isExtrasOpen, setIsExtrasOpen] = useState(false);
+
   return (
     <div className="bg-black text-white px-8 py-10">
       {/* Upper Part */}
       <div>
         <Row>
           {/* First Column */}
-          <Col span={0} lg={9}>
+          <Col span={0} lg={8}>
             <div className="w-full min-h-[540px]  flex flex-col gap-2 ">
-              {/* ➤ Top: 4 resource columns in a row */}
-              <div className="flex flex-row flex-wrap gap-4">
+              {/*  Top: 3 resource columns in a row */}
+              <div className="flex flex-row flex-wrap gap-x-20 gap-y-12">
                 {/* Column 1 */}
                 <div className="flex flex-col">
                   <h4>RESOURCES</h4>
                   <div className="mt-4 text-xs underline">
-                    <p>ZYON TRADER</p>
-                    <p>FREE COACHING</p>
-                    <p>HELP CENTER</p>
-                    <p>CONTACT SUPPORT</p>
+                    <p>Zyon Trader</p>
+                    <p>Free Coaching</p>
+                    <p>Help Center</p>
+                    <p>Contact Support</p>
                   </div>
                 </div>
 
@@ -41,8 +42,8 @@ function Footer() {
                 <div className="flex flex-col">
                   <h4>RESOURCES</h4>
                   <div className="mt-4 text-xs underline">
-                    <p>ABOUT US</p>
-                    <p>OUR TEAM</p>
+                    <p>About Us</p>
+                    <p>Our Team</p>
                     <p>FAQs</p>
                   </div>
                 </div>
@@ -51,19 +52,10 @@ function Footer() {
                 <div className="flex flex-col">
                   <h4>RESOURCES</h4>
                   <div className="mt-4 text-xs underline">
-                    <p>STATUS UPDATES</p>
-                    <p>ECONOMIC CALENDAR</p>
-                    <p>NEWSLETTER</p>
-                  </div>
-                </div>
-
-                {/* Column 4 */}
-                <div className="flex flex-col">
-                  <h4>RESOURCES</h4>
-                  <div className="mt-4 text-xs underline">
-                    <p>CURRENT OPENINGS</p>
-                    <p>ZYONTRADER GEAR</p>
-                    <p>COMMUNITY</p>
+                    <p>Status Updates</p>
+                    <p>Economic Calendar</p>
+                    <p>Newsletter</p>
+                    <p>Terms and Conditions</p>
                   </div>
                 </div>
               </div>
@@ -79,7 +71,7 @@ function Footer() {
           </Col>
 
           {/* Second Column */}
-          <Col span={24} lg={9}>
+          <Col span={24} lg={10}>
             <div className=" w-full min-h-[540px] lg:px-8">
               <div className="flex justify-evenly">
                 <FacebookFilled
@@ -94,9 +86,9 @@ function Footer() {
                   style={{ fontSize: 30 }}
                   className="cursor-pointer hover:!text-[#E4405F] transition-colors duration-300"
                 />
-                <TwitterOutlined
+                <XOutlined
                   style={{ fontSize: 30 }}
-                  className="cursor-pointer hover:!text-sky-400 transition-colors duration-300"
+                  className="cursor-pointer hover:!text-gray-400 transition-colors duration-300"
                 />
                 <LinkedinFilled
                   style={{ fontSize: 30 }}
@@ -152,21 +144,6 @@ function Footer() {
                     <Link className="!text-white group">STATUS UPDATES</Link>{" "}
                     <Link className="!text-white group">ECONOMIC CALENDAR</Link>{" "}
                     <Link className="!text-white group">NEWSLETTER</Link>{" "}
-                  </div>
-                )}
-
-                <div
-                  className="flex justify-start items-center gap-4 active:!bg-gray-500 border-b-3 mt-4 py-2"
-                  onClick={() => setIsExtrasOpen((prev) => !prev)}
-                >
-                  <Link className="!text-white group">EXTRAS</Link>{" "}
-                  <FaPlus size={18} />
-                </div>
-                {isExtrasOpen && (
-                  <div className="flex flex-col gap-4 active:!bg-gray-500  mt-4 py-2">
-                    <Link className="!text-white group">CURRENT OPENING</Link>{" "}
-                    <Link className="!text-white group">ZYONTRADER GEAR</Link>{" "}
-                    <Link className="!text-white group">COMMUNITY</Link>{" "}
                   </div>
                 )}
               </div>
@@ -227,7 +204,7 @@ function Footer() {
                   src="https://zyontech.in/wp-content/uploads/2025/06/Screenshot_2025-06-20_034647-removebg-preview.png"
                 />
 
-                <div className="mt-6 pl-4 flex">
+                <div className="mt-6 pl-4 flex justify-center items-center lg:justify-start">
                   <FaRegHospital size={70} />
                   <p className="text-2xl lg:text-xl font-bold text-green-300 pl-4 w-[80%]  lg:w-[129px]">
                     WE STARTED IN THE PITS
