@@ -1,8 +1,22 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css/bundle";
+import { useEffect, useState } from "react";
 
 function Carousel() {
+  // Responsive direction
+  const [direction, setDirection] = useState(
+    window.matchMedia("(max-width: 640px)").matches ? "horizontal" : "vertical"
+  );
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 640px)");
+    const handleChange = (e) => {
+      setDirection(e.matches ? "horizontal" : "vertical");
+    };
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
   const messages = [
     {
       title: "Algo Forward testing",
@@ -43,7 +57,7 @@ function Carousel() {
 
   return (
     <Swiper
-      direction="vertical"
+      direction={direction}
       loop={true}
       autoplay={{ delay: 3000, disableOnInteraction: false }}
       modules={[Autoplay]}
