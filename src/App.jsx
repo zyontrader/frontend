@@ -16,18 +16,21 @@ import Tradersuccessstories from "./pages/Tradersuccessstories";
 import TradeZyonTrader from "./pages/TradeZyonTrader";
 import Weeklylevels from "./pages/Weeklylevels";
 import Zyontradertv from "./pages/Zyontradertv";
+import { FloatButton } from "antd";
+import { WhatsAppOutlined } from "@ant-design/icons";
 
 function App() {
   return (
     <>
-      <Topbar />
+      {/* <Topbar /> */}
       <Header />
       <div className="min-h-24 overflow-hidden relative">
-        <div className="hidden lg:block bg-green-600 h-16 w-16  p-2 rounded-full fixed bottom-4 right-4 cursor-pointer">
+        <button className="hidden lg:block bg-green-600 h-16 w-16  px-3 rounded-full fixed bottom-4 right-4 cursor-pointer">
           <a href="https://api.whatsapp.com/resolve/?deeplink=%2F91XXXXXXXXXX&not_found=1">
-            <FaWhatsapp className="text-white" size={48} />
+            <FaWhatsapp className="text-white" size={40} />
           </a>
-        </div>
+        </button>
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/how-it-works" element={<Howitworks />} />
