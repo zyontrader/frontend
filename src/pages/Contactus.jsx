@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react'
 
-function Contactus() {
-  return <div className="text-4xl">Contact Us</div>;
+function ContactUs() {
+  return (
+    <div>ContactUs</div>
+  )
 }
 
-export default Contactus;
+export default ContactUs
