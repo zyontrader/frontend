@@ -1,4 +1,9 @@
-import { CloseOutlined, MenuOutlined } from "@ant-design/icons";
+import {
+  CloseOutlined,
+  DownOutlined,
+  MenuOutlined,
+  UpOutlined,
+} from "@ant-design/icons";
 import { Flex } from "antd";
 import { useState } from "react";
 import { Link } from "react-router";
@@ -6,200 +11,195 @@ import LoginModal from "./LoginModal";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isOurProgramOpen, setIsOurProgramOpen] = useState(false);
-  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
+  const [isCompetitionOpen, setIsCompetitionOpen] = useState(false);
+  const [isZyonOpen, setIsZyonOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   return (
     <div className="sticky top-0 z-50 bg-[linear-gradient(rgb(0,0,0)_70%,rgba(30,41,59,1)_100%)]">
-      <div className="h-20 w-full px-6 lg:px-15  text-white relative">
+      <div className="h-20 w-full px-6 lg:px-4  text-white relative">
         <Flex justify="space-between" align="center" className="h-full">
-          <div>
+          <div
+            className="xl:hidden  "
+            onClick={() => setIsMenuOpen((prev) => !prev)}
+          >
+            {isMenuOpen ? (
+              <CloseOutlined className="text-2xl xl:text-3xl " />
+            ) : (
+              <MenuOutlined className="text-2xl xl:text-3xl " />
+            )}
+          </div>
+          <div className="h-full">
             <Link to={"/"}>
-              <h1 className="text-2xl !font-black !text-white">ZYONTRADER</h1>
+              <img
+                className="h-20"
+                src="https://zyontech.in/wp-content/uploads/2025/06/Screenshot_2025-06-20_034647-removebg-preview.png"
+                alt=""
+              />
             </Link>
           </div>
           <Flex
             align="center"
-            className="!hidden lg:!flex h-full text-lg"
-            gap={60}
+            className="!hidden xl:!flex h-full text-md"
+            gap={30}
           >
-            <div className="h-10">
-              <Link to={"/"} className="!text-white">
-                HOME
+            <div>
+              <Link to={"/"} className="!text-white hover:!text-emerald-500">
+                Home
               </Link>
             </div>
-            <div className="relative group h-10">
-              <Link className="!text-white">OUR PROGRAM</Link>
-              <div className="hidden absolute top-8 bg-black text-white w-[200px] text-center text-sm group-hover:block">
+
+            <div className="relative group ">
+              <Link className="!text-white hover:!text-emerald-500">
+                Competition
+              </Link>
+              <div className="hidden absolute top-4 bg-black text-white w-[200px] text-center text-sm group-hover:block">
                 <Flex className="w-full" vertical>
                   <Link
                     to={"/how-it-works"}
-                    className="!text-white hover:!bg-gray-600 !h-10 content-center"
+                    className="!text-white hover:!text-emerald-500 !h-10 content-center"
                   >
-                    HOW IT WORKS
-                  </Link>
-                  <Link
-                    to={"/future-trading-101"}
-                    className="!text-white hover:!bg-gray-600 !h-10 content-center"
-                  >
-                    FUTURE TRADING 101
-                  </Link>
-                  <Link
-                    to={"/forex-to-future"}
-                    className="!text-white hover:!bg-gray-600 !h-10 content-center"
-                  >
-                    FOREX TO FUTURE
+                    Funding Program
                   </Link>
                 </Flex>
               </div>
             </div>
-            <div className="h-10">
-              <Link to={"/trade-zyontrader"} className="!text-white">
-                TRADE ZYONTRADER
+            <div className="relative group ">
+              <Link className="!text-white hover:!text-emerald-500">
+                Zyon Platform
               </Link>
-            </div>
-            <div className="h-10">
-              <Link to={"/free-coaching"} className="!text-white">
-                FREE COACHING
-              </Link>
-            </div>
-            <div className="relative group h-10">
-              <Link className="!text-white">RESOURCES</Link>
-              <div className="hidden absolute top-8 bg-black text-white w-[200px] text-center text-sm group-hover:block">
+              <div className="hidden absolute top-4 bg-black text-white w-[200px] text-center text-sm group-hover:block">
                 <Flex className="w-full" vertical>
                   <Link
-                    to={"/help-center"}
-                    className="!text-white hover:!bg-gray-600 !h-10 content-center"
+                    to={"/how-it-works"}
+                    className="!text-white  hover:!text-emerald-500 !h-10 content-center"
                   >
-                    HELP CENTER
+                    Paper Trading
                   </Link>
                   <Link
-                    to={"/zyontradertv"}
-                    className="!text-white hover:!bg-gray-600 !h-10 content-center"
+                    to={"/how-it-works"}
+                    className="!text-white  hover:!text-emerald-500 !h-10 content-center"
                   >
-                    ZYONTRADERTV
+                    Options
                   </Link>
                   <Link
-                    to={"/blog"}
-                    className="!text-white hover:!bg-gray-600 !h-10 content-center"
+                    to={"/how-it-works"}
+                    className="!text-white  hover:!text-emerald-500 !h-10 content-center"
                   >
-                    BLOG
+                    Market Data
                   </Link>
                   <Link
-                    to={"/trader-success-stories"}
-                    className="!text-white hover:!bg-gray-600 !h-10 content-center"
+                    to={"/how-it-works"}
+                    className="!text-white  hover:!text-emerald-500 !h-10 content-center"
                   >
-                    TRADER SUCCESS STORIES
-                  </Link>
-                  <Link
-                    to={"/weekly-levels"}
-                    className="!text-white hover:!bg-gray-600 !h-10 content-center"
-                  >
-                    WEEKLY LEVELS
-                  </Link>
-                  <Link
-                    to={"/join-our-community"}
-                    className="!text-white hover:!bg-gray-600 !h-10 content-center"
-                  >
-                    JOIN OUR COMMUNITY
-                  </Link>
-                  <Link
-                    to={"/contact-us"}
-                    className="!text-white hover:!bg-gray-600 !h-10 content-center"
-                  >
-                    CONTACT US
+                    News
                   </Link>
                 </Flex>
               </div>
             </div>
+            <div>
+              <Link
+                to={"/trade-zyontrader"}
+                className="!text-white hover:!text-emerald-500"
+              >
+                Algo Trading
+              </Link>
+            </div>
+            <div>
+              <Link
+                to={"/free-coaching"}
+                className="!text-white hover:!text-emerald-500"
+              >
+                Forward Testing
+              </Link>
+            </div>
+            <div>
+              <Link
+                to={"/free-coaching"}
+                className="!text-white hover:!text-emerald-500"
+              >
+                Developer Forum
+              </Link>
+            </div>
           </Flex>
-          <div className="hidden lg:block text-black text-xl leading-4.5 items-center">
+
+          <div className="hidden md:block text-black text-xl leading-4.5 items-center">
             <LoginModal
               open={isLoginOpen}
               onClose={() => setIsLoginOpen(false)}
             />
-            {/* <button
-              className="bg-white h-15 w-40 px-3 cursor-pointer hover:bg-emerald-300 transition duration-500 rounded-full"
+            <button
+              className="bg-white h-10 w-40 px-2 cursor-pointer hover:bg-emerald-300 transition duration-500 rounded"
               onClick={() => setIsLoginOpen(true)}
             >
-              EARN FUNDING
-            </button> */}
-          </div>
-
-          <div
-            className="lg:hidden h-10 "
-            onClick={() => setIsMenuOpen((prev) => !prev)}
-          >
-            {isMenuOpen ? (
-              <CloseOutlined className="text-3xl " />
-            ) : (
-              <MenuOutlined className="text-3xl " />
-            )}
+              Login/Register
+            </button>
           </div>
         </Flex>
-        {isMenuOpen && (
-          <div className=" w-full bg-black flex flex-col items-center">
-            <Link className="w-full h-10 flex justify-center items-center active:bg-gray-500 text-white">
-              HOME
+        {
+          <div
+            className={`absolute xl:hidden py-8 ${
+              isMenuOpen ? "left-0" : "-left-500"
+            } transition-all duration-500 ease-in-out  w-full bg-black flex flex-col items-center`}
+          >
+            <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white">
+              Home
             </Link>
             <Link
-              className="w-full h-10 flex justify-center items-center active:bg-gray-500 text-white"
-              onClick={() => setIsOurProgramOpen((prev) => !prev)}
+              className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
+              onClick={() => setIsCompetitionOpen((prev) => !prev)}
             >
-              OUR PROGRAM
+              Competition{" "}
+              {isCompetitionOpen ? (
+                <UpOutlined className="ml-2" />
+              ) : (
+                <DownOutlined className="ml-2" />
+              )}
             </Link>
-            {isOurProgramOpen && (
-              <div className=" w-full bg-black flex flex-col items-center">
-                <Link className="w-full h-10 flex justify-center items-center active:bg-gray-500 text-white">
-                  HOW IT WORKS
-                </Link>
-                <Link className="w-full h-10 flex justify-center items-center active:bg-gray-500 text-white">
-                  FUTURE TRADING 101
-                </Link>
-                <Link className="w-full h-10 flex justify-center items-center active:bg-gray-500 text-white">
-                  FOREX TO FUTURE
+            {isCompetitionOpen && (
+              <div className=" w-full bg-gray-900  flex flex-col items-center">
+                <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:!text-emerald-500 text-white">
+                  Funding Program
                 </Link>
               </div>
             )}
-            <Link className="w-full h-10 flex justify-center items-center active:bg-gray-500 text-white">
-              TRADE ZYONTRADER
-            </Link>
-            <Link className="w-full h-10 flex justify-center items-center active:bg-gray-500 text-white">
-              FREE COACHING
-            </Link>
             <Link
-              className="w-full h-10 flex justify-center items-center active:bg-gray-500 text-white"
-              onClick={() => setIsResourcesOpen((prev) => !prev)}
+              className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
+              onClick={() => setIsZyonOpen((prev) => !prev)}
             >
-              RESOURCES
+              Zyon Platform{" "}
+              {isZyonOpen ? (
+                <UpOutlined className="ml-2" />
+              ) : (
+                <DownOutlined className="ml-2" />
+              )}
             </Link>
-            {isResourcesOpen && (
-              <div className=" w-full bg-black flex flex-col items-center">
-                <Link className="w-full h-10 flex justify-center items-center active:bg-gray-500 text-white">
-                  HELP CENTER
+            {isZyonOpen && (
+              <div className=" w-full bg-gray-900 flex flex-col items-center">
+                <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white">
+                  Paper Trading
                 </Link>
-                <Link className="w-full h-10 flex justify-center items-center active:bg-gray-500 text-white">
-                  ZYRONTRADERTV
+                <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white">
+                  Options
                 </Link>
-                <Link className="w-full h-10 flex justify-center items-center active:bg-gray-500 text-white">
-                  BLOG
+                <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white">
+                  Market Data
                 </Link>
-                <Link className="w-full h-10 flex justify-center items-center active:bg-gray-500 text-white">
-                  TRADER SUCCESS STORIES
-                </Link>
-                <Link className="w-full h-10 flex justify-center items-center active:bg-gray-500 text-white">
-                  WEEKLY LEVELS
-                </Link>
-                <Link className="w-full h-10 flex justify-center items-center active:bg-gray-500 text-white">
-                  JOIN OUR COMMUNITY
-                </Link>
-                <Link className="w-full h-10 flex justify-center items-center active:bg-gray-500 text-white">
-                  CONTACT US
+                <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white">
+                  News
                 </Link>
               </div>
             )}
+            <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white">
+              Algo Trading
+            </Link>
+            <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white">
+              Forward Testing
+            </Link>
+            <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white">
+              Developer Forum
+            </Link>
           </div>
-        )}
+        }
       </div>
       <LoginModal open={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
     </div>
