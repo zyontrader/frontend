@@ -14,7 +14,26 @@ function Header() {
   const [isCompetitionOpen, setIsCompetitionOpen] = useState(false);
   const [isZyonOpen, setIsZyonOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
-  
+  const navLinks = [
+    { label: "Home", path: "/" },
+    {
+      label: "Competition",
+      subLinks: [{ label: "Funding Program", path: "/funding-program" }],
+    },
+    {
+      label: "Zyon Platform",
+      subLinks: [
+        { label: "Paper Trading", path: "/paper-trading" },
+        { label: "Options Trading", path: "/options-trading" },
+        { label: "Market Data", path: "/market-data" },
+        { label: "News", path: "/news" },
+      ],
+    },
+    { label: "Algo Trading", path: "/algo-trading" },
+    { label: "Forward Testing", path: "/forward-testing" },
+    { label: "Developer Forum", path: "/developer-forum" },
+  ];
+
   return (
     <div className="sticky top-0 z-50 bg-[linear-gradient(rgb(0,0,0)_70%,rgba(30,41,59,1)_100%)]">
       <div className="h-20 w-full px-6 lg:px-4  text-white relative">
@@ -43,84 +62,38 @@ function Header() {
             className="!hidden xl:!flex h-full text-md"
             gap={30}
           >
-            <div>
-              <Link to={"/"} className="!text-white hover:!text-emerald-500">
-                Home
-              </Link>
-            </div>
+            {navLinks.map(({ label, path, subLinks }) => (
+              <div key={label} className={subLinks ? "relative group" : ""}>
+                {path ? (
+                  <Link
+                    to={path}
+                    className="!text-white hover:!text-emerald-500"
+                  >
+                    {label}
+                  </Link>
+                ) : (
+                  <span className="!text-white hover:!text-emerald-500 cursor-pointer">
+                    {label}
+                  </span>
+                )}
 
-            <div className="relative group ">
-              <Link className="!text-white hover:!text-emerald-500">
-                Competition
-              </Link>
-              <div className="hidden absolute top-4 -right-[50px] bg-black text-white w-[200px] text-center text-sm group-hover:block">
-                <Flex className="w-full" vertical>
-                  <Link
-                    to={"/funding-program"}
-                    className="!text-white hover:!text-emerald-500 !h-10 content-center"
-                  >
-                    Funding Program
-                  </Link>
-                </Flex>
+                {subLinks && (
+                  <div className="hidden absolute top-4 -right-[50px] bg-black text-white w-[200px] text-center text-sm group-hover:block">
+                    <Flex className="w-full" vertical>
+                      {subLinks.map((sublink, i) => (
+                        <Link
+                          key={i}
+                          to={sublink.path}
+                          className="!text-white hover:!text-emerald-500 !h-10 content-center"
+                        >
+                          {sublink.label}
+                        </Link>
+                      ))}
+                    </Flex>
+                  </div>
+                )}
               </div>
-            </div>
-            <div className="relative group ">
-              <Link className="!text-white hover:!text-emerald-500">
-                Zyon Platform
-              </Link>
-              <div className="hidden absolute top-4 -right-[50px] bg-black text-white w-[200px] text-center text-sm group-hover:block">
-                <Flex className="w-full" vertical>
-                  <Link
-                    to={"/paper-trading"}
-                    className="!text-white  hover:!text-emerald-500 !h-10 content-center"
-                  >
-                    Paper Trading
-                  </Link>
-                  <Link
-                    to={"/options-trading"}
-                    className="!text-white  hover:!text-emerald-500 !h-10 content-center"
-                  >
-                    Options Trading
-                  </Link>
-                  <Link
-                    to={"/market-data"}
-                    className="!text-white  hover:!text-emerald-500 !h-10 content-center"
-                  >
-                    Market Data
-                  </Link>
-                  <Link
-                    to={"/news"}
-                    className="!text-white  hover:!text-emerald-500 !h-10 content-center"
-                  >
-                    News
-                  </Link>
-                </Flex>
-              </div>
-            </div>
-            <div>
-              <Link
-                to={"/algo-trading"}
-                className="!text-white hover:!text-emerald-500"
-              >
-                Algo Trading
-              </Link>
-            </div>
-            <div>
-              <Link
-                to={"/forward-testing"}
-                className="!text-white hover:!text-emerald-500"
-              >
-                Forward Testing
-              </Link>
-            </div>
-            <div>
-              <Link
-                to={"/developer-forum"}
-                className="!text-white hover:!text-emerald-500"
-              >
-                Developer Forum
-              </Link>
-            </div>
+            ))}
           </Flex>
 
           <div className="hidden md:block text-black text-xl leading-4.5 items-center">
