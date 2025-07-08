@@ -14,6 +14,7 @@ function Header() {
   const [isCompetitionOpen, setIsCompetitionOpen] = useState(false);
   const [isZyonOpen, setIsZyonOpen] = useState(false);
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  
   return (
     <div className="sticky top-0 z-50 bg-[linear-gradient(rgb(0,0,0)_70%,rgba(30,41,59,1)_100%)]">
       <div className="h-20 w-full px-6 lg:px-4  text-white relative">
@@ -52,10 +53,10 @@ function Header() {
               <Link className="!text-white hover:!text-emerald-500">
                 Competition
               </Link>
-              <div className="hidden absolute top-4 bg-black text-white w-[200px] text-center text-sm group-hover:block">
+              <div className="hidden absolute top-4 -right-[50px] bg-black text-white w-[200px] text-center text-sm group-hover:block">
                 <Flex className="w-full" vertical>
                   <Link
-                    to={"/how-it-works"}
+                    to={"/funding-program"}
                     className="!text-white hover:!text-emerald-500 !h-10 content-center"
                   >
                     Funding Program
@@ -67,28 +68,28 @@ function Header() {
               <Link className="!text-white hover:!text-emerald-500">
                 Zyon Platform
               </Link>
-              <div className="hidden absolute top-4 bg-black text-white w-[200px] text-center text-sm group-hover:block">
+              <div className="hidden absolute top-4 -right-[50px] bg-black text-white w-[200px] text-center text-sm group-hover:block">
                 <Flex className="w-full" vertical>
                   <Link
-                    to={"/how-it-works"}
+                    to={"/paper-trading"}
                     className="!text-white  hover:!text-emerald-500 !h-10 content-center"
                   >
                     Paper Trading
                   </Link>
                   <Link
-                    to={"/how-it-works"}
+                    to={"/options-trading"}
                     className="!text-white  hover:!text-emerald-500 !h-10 content-center"
                   >
-                    Options
+                    Options Trading
                   </Link>
                   <Link
-                    to={"/how-it-works"}
+                    to={"/market-data"}
                     className="!text-white  hover:!text-emerald-500 !h-10 content-center"
                   >
                     Market Data
                   </Link>
                   <Link
-                    to={"/how-it-works"}
+                    to={"/news"}
                     className="!text-white  hover:!text-emerald-500 !h-10 content-center"
                   >
                     News
@@ -98,7 +99,7 @@ function Header() {
             </div>
             <div>
               <Link
-                to={"/trade-zyontrader"}
+                to={"/algo-trading"}
                 className="!text-white hover:!text-emerald-500"
               >
                 Algo Trading
@@ -106,7 +107,7 @@ function Header() {
             </div>
             <div>
               <Link
-                to={"/free-coaching"}
+                to={"/forward-testing"}
                 className="!text-white hover:!text-emerald-500"
               >
                 Forward Testing
@@ -114,7 +115,7 @@ function Header() {
             </div>
             <div>
               <Link
-                to={"/free-coaching"}
+                to={"/developer-forum"}
                 className="!text-white hover:!text-emerald-500"
               >
                 Developer Forum
@@ -141,7 +142,10 @@ function Header() {
               isMenuOpen ? "left-0" : "-left-500"
             } transition-all duration-500 ease-in-out  w-full bg-black flex flex-col items-center`}
           >
-            <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white">
+            <Link
+              to="/"
+              className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
+            >
               Home
             </Link>
             <Link
@@ -157,7 +161,10 @@ function Header() {
             </Link>
             {isCompetitionOpen && (
               <div className=" w-full bg-gray-900  flex flex-col items-center">
-                <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:!text-emerald-500 text-white">
+                <Link
+                  to="/funding-program"
+                  className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:!text-emerald-500 text-white"
+                >
                   Funding Program
                 </Link>
               </div>
@@ -175,27 +182,48 @@ function Header() {
             </Link>
             {isZyonOpen && (
               <div className=" w-full bg-gray-900 flex flex-col items-center">
-                <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white">
+                <Link
+                  to="paper-trading"
+                  className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
+                >
                   Paper Trading
                 </Link>
-                <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white">
-                  Options
+                <Link
+                  to="options-trading"
+                  className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
+                >
+                  Options Trading
                 </Link>
-                <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white">
+                <Link
+                  to="market-data"
+                  className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
+                >
                   Market Data
                 </Link>
-                <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white">
+                <Link
+                  to="news"
+                  className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
+                >
                   News
                 </Link>
               </div>
             )}
-            <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white">
+            <Link
+              to="algo-trading"
+              className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
+            >
               Algo Trading
             </Link>
-            <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white">
+            <Link
+              to="/forward-testing"
+              className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
+            >
               Forward Testing
             </Link>
-            <Link className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white">
+            <Link
+              to="/developer-forum"
+              className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
+            >
               Developer Forum
             </Link>
           </div>
