@@ -4,7 +4,6 @@ import Faq from "./components/Faq";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import AboutUs from "./pages/AboutUs";
-
 import Home from "./pages/Home";
 import Team from "./pages/Team";
 import TermsAndConditions from "./pages/TermsAndConditions";
@@ -16,7 +15,7 @@ import News from "./pages/News";
 import AlgoTrading from "./pages/AlgoTrading";
 import ForwardTesting from "./pages/ForwardTesting";
 import DeveloperForum from "./pages/DeveloperForum";
-import ContactUs from "./pages/Contactus";
+import ContactUs from './pages/ContactUs';
 
 function App() {
   return (
