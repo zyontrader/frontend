@@ -18,10 +18,14 @@ function Header() {
     { label: "Home", path: "/" },
     {
       label: "Competition",
+      currentState: isCompetitionOpen,
+      setCurrentState: setIsCompetitionOpen,
       subLinks: [{ label: "Funding Program", path: "/funding-program" }],
     },
     {
       label: "Zyon Platform",
+      currentState: isZyonOpen,
+      setCurrentState: setIsZyonOpen,
       subLinks: [
         { label: "Paper Trading", path: "/paper-trading" },
         { label: "Options Trading", path: "/options-trading" },
@@ -38,8 +42,9 @@ function Header() {
     <div className="sticky top-0 z-50 bg-[linear-gradient(rgb(0,0,0)_70%,rgba(30,41,59,1)_100%)]">
       <div className="h-20 w-full px-6 lg:px-4  text-white relative">
         <Flex justify="space-between" align="center" className="h-full">
+          {/* Hamburger */}
           <div
-            className="xl:hidden  "
+            className="xl:hidden cursor-pointer "
             onClick={() => setIsMenuOpen((prev) => !prev)}
           >
             {isMenuOpen ? (
@@ -48,6 +53,7 @@ function Header() {
               <MenuOutlined className="text-2xl xl:text-3xl " />
             )}
           </div>
+          {/* Desktop Menu */}
           <div className="h-full">
             <Link to={"/"}>
               <img
@@ -109,96 +115,66 @@ function Header() {
             </button>
           </div>
         </Flex>
+
+        {/* Mobile Menu */}
         {
           <div
             className={`absolute xl:hidden py-8 ${
               isMenuOpen ? "left-0" : "-left-500"
-            } transition-all duration-500 ease-in-out  w-full bg-black flex flex-col items-center`}
+            } transition-all duration-500 ease-in-out w-full bg-black flex flex-col items-center z-50`}
           >
-            <Link
-              to="/"
-              className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
-            >
-              Home
-            </Link>
-            <Link
-              className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
-              onClick={() => setIsCompetitionOpen((prev) => !prev)}
-            >
-              Competition{" "}
-              {isCompetitionOpen ? (
-                <UpOutlined className="ml-2" />
-              ) : (
-                <DownOutlined className="ml-2" />
-              )}
-            </Link>
-            {isCompetitionOpen && (
-              <div className=" w-full bg-gray-900  flex flex-col items-center">
-                <Link
-                  to="/funding-program"
-                  className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:!text-emerald-500 text-white"
-                >
-                  Funding Program
-                </Link>
-              </div>
+            {navLinks.map(
+              ({ label, path, subLinks, currentState, setCurrentState }) => (
+                <div key={label} className="w-full flex flex-col items-center">
+                  {/* Parent link */}
+                  <Link
+                    to={path || "#"}
+                    className="w-full h-10 flex justify-center items-center text-white hover:text-emerald-500"
+                    onClick={() => {
+                      if (setCurrentState) {
+                        setCurrentState((prev) => !prev);
+                      }
+                      if (!subLinks) {
+                        setIsMenuOpen(false); // close menu on direct link
+                      }
+                    }}
+                  >
+                    {label}
+                    {subLinks && (
+                      <>
+                        {currentState ? (
+                          <UpOutlined className="ml-2" />
+                        ) : (
+                          <DownOutlined className="ml-2" />
+                        )}
+                      </>
+                    )}
+                  </Link>
+
+                  {/* Sublinks */}
+                  {currentState && subLinks && (
+                    <div className="w-full bg-gray-900 flex flex-col items-center">
+                      {subLinks.map((sublink, i) => (
+                        <Link
+                          key={i}
+                          to={sublink.path}
+                          className="w-full h-10 flex justify-center items-center text-white hover:!text-emerald-500"
+                          onClick={() => {
+                            if (setCurrentState) {
+                              setCurrentState((prev) => !prev);
+                            }
+
+                            setIsMenuOpen(false);
+                          }}
+                        >
+                          {sublink.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )
             )}
-            <Link
-              className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
-              onClick={() => setIsZyonOpen((prev) => !prev)}
-            >
-              Zyon Platform{" "}
-              {isZyonOpen ? (
-                <UpOutlined className="ml-2" />
-              ) : (
-                <DownOutlined className="ml-2" />
-              )}
-            </Link>
-            {isZyonOpen && (
-              <div className=" w-full bg-gray-900 flex flex-col items-center">
-                <Link
-                  to="paper-trading"
-                  className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
-                >
-                  Paper Trading
-                </Link>
-                <Link
-                  to="options-trading"
-                  className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
-                >
-                  Options Trading
-                </Link>
-                <Link
-                  to="market-data"
-                  className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
-                >
-                  Market Data
-                </Link>
-                <Link
-                  to="news"
-                  className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
-                >
-                  News
-                </Link>
-              </div>
-            )}
-            <Link
-              to="algo-trading"
-              className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
-            >
-              Algo Trading
-            </Link>
-            <Link
-              to="/forward-testing"
-              className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
-            >
-              Forward Testing
-            </Link>
-            <Link
-              to="/developer-forum"
-              className="w-full h-10 flex justify-center items-center active:text-emerald-500 hover:text-emerald-500 text-white"
-            >
-              Developer Forum
-            </Link>
           </div>
         }
       </div>
