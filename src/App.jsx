@@ -1,23 +1,21 @@
 import { FaWhatsapp } from "react-icons/fa";
 import { Route, Routes } from "react-router";
+import Faq from "./components/Faq";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import Topbar from "./components/Topbar";
-import Blog from "./pages/Blog";
-import Contactus from "./pages/Contactus";
-import ForextoFuture from "./pages/ForextoFuture";
-import Freecoaching from "./pages/Freecoaching";
-import Futuretrading101 from "./pages/Futuretrading101";
-import Helpcenter from "./pages/Helpcenter";
+import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUs";
 import Home from "./pages/Home";
-import Howitworks from "./pages/Howitworks";
-import Joinourcommunity from "./pages/Joinourcommunity";
-import Tradersuccessstories from "./pages/Tradersuccessstories";
-import TradeZyonTrader from "./pages/TradeZyonTrader";
-import Weeklylevels from "./pages/Weeklylevels";
-import Zyontradertv from "./pages/Zyontradertv";
-import { FloatButton } from "antd";
-import { WhatsAppOutlined } from "@ant-design/icons";
+import Team from "./pages/Team";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import FundingProgram from "./pages/FundingProgram";
+import PaperTrading from "./pages/PaperTrading";
+import OptionsTrading from "./pages/OptionsTrading";
+import MarketData from "./pages/MarketData";
+import News from "./pages/News";
+import AlgoTrading from "./pages/AlgoTrading";
+import ForwardTesting from "./pages/ForwardTesting";
+import DeveloperForum from "./pages/DeveloperForum";
 
 function App() {
   return (
@@ -33,21 +31,22 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/how-it-works" element={<Howitworks />} />
-          <Route path="/future-trading-101" element={<Futuretrading101 />} />
-          <Route path="/forex-to-future" element={<ForextoFuture />} />
-          <Route path="/trade-zyontrader" element={<TradeZyonTrader />} />
-          <Route path="/free-coaching" element={<Freecoaching />} />
-          <Route path="/help-center" element={<Helpcenter />} />
-          <Route path="/zyontradertv" element={<Zyontradertv />} />
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/funding-program" element={<FundingProgram />} />
+          <Route path="/paper-trading" element={<PaperTrading />} />
+          <Route path="/options-trading" element={<OptionsTrading />} />
+          <Route path="/market-data" element={<MarketData />} />
+          <Route path="/news" element={<News />} />
+          <Route path="/algo-trading" element={<AlgoTrading />} />
+          <Route path="/forward-testing" element={<ForwardTesting />} />
+          <Route path="/developer-forum" element={<DeveloperForum />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/team" element={<Team />} />
           <Route
-            path="/trader-success-stories"
-            element={<Tradersuccessstories />}
+            path="/terms-and-conditions"
+            element={<TermsAndConditions />}
           />
-          <Route path="/weekly-levels" element={<Weeklylevels />} />
-          <Route path="/join-our-community" element={<Joinourcommunity />} />
-          <Route path="/contact-us" element={<Contactus />} />
         </Routes>
       </div>
       <Footer />
