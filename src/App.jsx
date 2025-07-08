@@ -15,7 +15,7 @@ import News from "./pages/News";
 import AlgoTrading from "./pages/AlgoTrading";
 import ForwardTesting from "./pages/ForwardTesting";
 import DeveloperForum from "./pages/DeveloperForum";
-import ContactUs from './pages/ContactUs';
+import ContactUs from "./pages/ContactUs";
 import DetailedNews from "./pages/DetailedNews";
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
       {/* <Topbar /> */}
       <Header />
       <div className=" overflow-hidden relative">
-        <button className="hidden lg:block bg-green-600 h-16 w-16  px-3 rounded-full fixed bottom-4 right-4 cursor-pointer">
+        <button className="hidden lg:block z-50 bg-green-600 h-16 w-16  px-3 rounded-full fixed bottom-4 right-4 cursor-pointer">
           <a href="https://api.whatsapp.com/resolve/?deeplink=%2F91XXXXXXXXXX&not_found=1">
             <FaWhatsapp className="text-white" size={40} />
           </a>
