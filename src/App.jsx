@@ -16,6 +16,7 @@ import AlgoTrading from "./pages/AlgoTrading";
 import ForwardTesting from "./pages/ForwardTesting";
 import DeveloperForum from "./pages/DeveloperForum";
 import ContactUs from './pages/ContactUs';
+import DetailedNews from "./pages/DetailedNews";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/options-trading" element={<OptionsTrading />} />
           <Route path="/market-data" element={<MarketData />} />
           <Route path="/news" element={<News />} />
+          <Route path="/news/:id" element={<DetailedNews />} />
           <Route path="/algo-trading" element={<AlgoTrading />} />
           <Route path="/forward-testing" element={<ForwardTesting />} />
           <Route path="/developer-forum" element={<DeveloperForum />} />

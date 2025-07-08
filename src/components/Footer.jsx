@@ -116,6 +116,7 @@ function Footer() {
                   <div className="mt-4 flex flex-col items-center gap-4 tracking-widest  text-md underline underline-offset-4">
                     {footerLinks.map((item) => (
                       <Link
+                        key={item.text}
                         to={item.path}
                         className="!text-white hover:!text-emerald-500"
                       >
