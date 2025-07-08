@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Contactus() {
+function ContactUs() {
   return (
-    <div>Contactus</div>
+    <div>ContactUs</div>
   )
 }
 
-export default Contactus
+export default ContactUs
