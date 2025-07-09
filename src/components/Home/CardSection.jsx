@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../assets/img.jpg";
+import img from "../../assets/img.jpg";
 import { FaClock, FaDotCircle } from "react-icons/fa";
 import { ImCross } from "react-icons/im";
 import { TiTick } from "react-icons/ti";

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import NewsCard from "../components/NewsCard";
+import NewsCard from './../components/News/NewsCard';
 import { Spin } from "antd";
 import { LoadingOutlined } from "@ant-design/icons";
 

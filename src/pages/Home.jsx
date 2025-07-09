@@ -4,13 +4,13 @@ import {
   FaMoneyBillAlt,
   FaTradeFederation,
 } from "react-icons/fa";
-import CardSection from "../components/CardSection";
-import Carousel from "../components/Carousel";
-import Faq from "../components/Faq";
-import TvSection from "../components/TvSection";
+import Faq from "../components/Home/Faq";
 import LoginModal from "../components/LoginModal";
 import { useState } from "react";
 import { useInView } from "react-intersection-observer";
+import Carousel from './../components/Home/Carousel';
+import CardSection from './../components/Home/CardSection';
+import TvSection from './../components/Home/TvSection';
 
 function Home() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
