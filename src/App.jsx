@@ -16,8 +16,8 @@ import OptionsTrading from "./pages/OptionsTrading";
 import PaperTrading from "./pages/PaperTrading";
 import Team from "./pages/Team";
 import TermsAndConditions from "./pages/TermsAndConditions";
-import Trader from "./pages/Trader";
 import Faq from './components/Home/Faq';
+import Trader from './components/Trader/Trader';
 
 function App() {
   return (

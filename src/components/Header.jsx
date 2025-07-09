@@ -36,6 +36,7 @@ function Header() {
     { label: "Algo Trading", path: "/algo-trading" },
     { label: "Forward Testing", path: "/forward-testing" },
     { label: "Developer Forum", path: "/developer-forum" },
+    { label: "Trader Portal", path: "/trader" },
   ];
 
   return (
