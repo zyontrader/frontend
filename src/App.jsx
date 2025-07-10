@@ -25,7 +25,7 @@ function App() {
   return (
     <div>
       {/* <Topbar /> */}
-      {/* <Header /> */}
+      <Header />
       <div className=" overflow-hidden relative">
         <button className="hidden lg:block z-50 bg-green-600 h-16 w-16  px-3 rounded-full fixed bottom-4 right-4 cursor-pointer">
           <a href="https://api.whatsapp.com/resolve/?deeplink=%2F91XXXXXXXXXX&not_found=1">
