@@ -9,9 +9,9 @@ import * as editOrderStore from '../../store/editOrderStore';
 import eventBus, { EVENT_TYPES } from '../../utils/eventBus';
 
 const statusColor = {
-  COMPLETE: 'text-brighter-green',
+  COMPLETE: 'text-green-500',
   CANCELLED: 'text-neutral-500',
-  REJECTED: 'text-price-red',
+  REJECTED: 'text-red-500',
   PENDING: 'text-yellow-400',
 };
 
@@ -60,7 +60,7 @@ const OrderItemWidget = ({ order, isLast }) => {
     };
   }, [order.scriptId]);
 
-  const orderTypeColor = order.orderType === 'BUY' ? 'text-blue-400' : 'text-price-red';
+  const orderTypeColor = order.orderType === 'BUY' ? 'text-blue-500' : 'text-red-500';
   const status = order.status.toUpperCase();
   const statusClass = statusColor[status] || 'text-gray-400';
 

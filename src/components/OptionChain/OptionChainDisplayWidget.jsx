@@ -113,8 +113,10 @@ const OptionChainDisplayWidget = () => {
           onChange={handleUnderlyingChange}
           disabled={loading}
         >
-          {underlyings.map(u => (
-            <Option key={u} value={u}>{u}</Option>
+          {underlyings.map((u) => (
+            <Option key={u} value={u}>
+              {u}
+            </Option>
           ))}
         </Select>
         <Select
@@ -123,43 +125,63 @@ const OptionChainDisplayWidget = () => {
           onChange={handleExpiryChange}
           disabled={loading || !selectedUnderlying}
         >
-          {expiries.map(e => (
-            <Option key={e} value={e}>{e}</Option>
+          {expiries.map((e) => (
+            <Option key={e} value={e}>
+              {e}
+            </Option>
           ))}
         </Select>
         <button
           onClick={handleRefresh}
           type="primary"
-          className="w-7 h-7 flex rounded bg-button-blue active:bg-blue-300 text-white shadow items-center justify-center"
+          className="w-7 h-7 flex rounded bg-blue-500 active:bg-blue-300 cursor-pointer !text-white shadow items-center justify-center"
           disabled={loading}
         >
           <ReloadOutlined style={{ fontSize: 18, fontWeight: 700 }} />
         </button>
       </div>
-      <div ref={scrollContainerRef} className="flex flex-1 overflow-y-auto bg-dark-bg rounded-lg border border-neutral-800 w-full">
+      <div
+        ref={scrollContainerRef}
+        className="flex flex-1 overflow-y-auto bg-dark-bg rounded-lg border border-neutral-800 w-full"
+      >
         {loading ? (
-          <div className="flex flex-1 items-center justify-center h-40"><Spin size="large" /></div>
+          <div className="flex flex-1 items-center justify-center h-40">
+            <Spin size="large" />
+          </div>
         ) : error ? (
           <div className="p-4 flex-1 text-red-400 font-semibold text-base content-center text-center">
             An error occurred while loading the option chain. Please try again.
           </div>
         ) : (
           <table className="w-full text-xs font-family-roboto">
-            <thead className='sticky top-0 z-30'>
-              <tr className="bg-dark-bg-2 text-neutral-300 text-center">
-                <th colSpan={3} className="border-r border-neutral-700 text-red-300 font-semibold text-base py-2 bg-dark-bg-2">CALLS</th>
-                <th colSpan={2} className="bg-dark-bg-2 text-neutral-400 font-semibold text-sm py-2"></th>
-                <th colSpan={3} className="border-l border-neutral-700 text-green-300 font-semibold text-base py-2 bg-dark-bg-2">PUTS</th>
+            <thead className="sticky top-0 z-30">
+              <tr className="bg-zinc-800 text-neutral-300 text-center">
+                <th
+                  colSpan={3}
+                  className="border-r border-neutral-700 text-red-500 font-semibold text-base py-2 bg-zinc-800"
+                >
+                  CALLS
+                </th>
+                <th
+                  colSpan={2}
+                  className="bg-zinc-800 text-neutral-400 font-semibold text-sm py-2"
+                ></th>
+                <th
+                  colSpan={3}
+                  className="border-l border-neutral-700 text-green-500 font-semibold text-base py-2 bg-zinc-800"
+                >
+                  PUTS
+                </th>
               </tr>
-              <tr className="bg-dark-bg-2 text-neutral-400 text-center text-sm">
-                {!isMobile && <th className=" bg-dark-bg-2">OI Chg%</th>}
-                <th className=" bg-dark-bg-2">OI</th>
-                <th className=" bg-dark-bg-2">LTP</th>
-                <th className=" bg-dark-bg-2">Strike</th>
-                <th className=" bg-dark-bg-2">IV</th>
-                <th className=" bg-dark-bg-2">LTP</th>
-                <th className=" bg-dark-bg-2">OI</th>
-                {!isMobile && <th className=" bg-dark-bg-2">OI Chg%</th>}
+              <tr className="bg-zinc-800 text-neutral-400 text-center text-sm">
+                {!isMobile && <th className=" bg-zinc-800">OI Chg%</th>}
+                <th className=" bg-zinc-800">OI</th>
+                <th className=" bg-zinc-800">LTP</th>
+                <th className=" bg-zinc-800">Strike</th>
+                <th className=" bg-zinc-800">IV</th>
+                <th className=" bg-zinc-800">LTP</th>
+                <th className=" bg-zinc-800">OI</th>
+                {!isMobile && <th className=" bg-zinc-800">OI Chg%</th>}
               </tr>
             </thead>
             <tbody>
@@ -170,38 +192,85 @@ const OptionChainDisplayWidget = () => {
                 const putOIChg = (row.putOiDiffs || [])[3] || 0;
                 const callLTP = row.callQuote?.price || 0;
                 const putLTP = row.putQuote?.price || 0;
-                const iv = row.iv || 14.20;
+                const iv = row.iv || 14.2;
                 const isATM = idx === atmIdx;
                 // OI Chg% (dummy, as % not in sample, so use OIChange/OI)
-                const callOIChgPct = callOI ? Math.round((callOIChg / callOI) * 100) : 0;
-                const putOIChgPct = putOI ? Math.round((putOIChg / putOI) * 100) : 0;
+                const callOIChgPct = callOI
+                  ? Math.round((callOIChg / callOI) * 100)
+                  : 0;
+                const putOIChgPct = putOI
+                  ? Math.round((putOIChg / putOI) * 100)
+                  : 0;
                 return (
                   <tr
                     key={row.strike}
                     ref={isATM ? atmRowRef : null}
-                    className={`text-center text-sm ${isATM ? 'bg-blue-950/40' : idx % 2 ? 'bg-dark-bg-2' : ''}`}
+                    className={`text-center text-sm ${
+                      isATM ? "bg-blue-950/40" : idx % 2 ? "bg-zinc-800" : ""
+                    }`}
                   >
                     {/* CALLS */}
-                    {!isMobile && <td className={`p-1 text-xs ${callOIChgPct < 0 ? 'text-red-400' : 'text-green-300'}`}>{callOIChgPct ? `${callOIChgPct > 0 ? '+' : ''}${callOIChgPct}%` : '-'}</td>}
-                    <td className='p-1'>
+                    {!isMobile && (
+                      <td
+                        className={`p-1 text-xs ${
+                          callOIChgPct < 0 ? "text-red-400" : "text-green-300"
+                        }`}
+                      >
+                        {callOIChgPct
+                          ? `${callOIChgPct > 0 ? "+" : ""}${callOIChgPct}%`
+                          : "-"}
+                      </td>
+                    )}
+                    <td className="p-1">
                       <div className="relative h-4 flex items-center">
-                        <div className="absolute right-0 top-1/2 -translate-y-1/2 h-4 rounded bg-red-200/20" style={{ width: `${(callOI / maxOI) * 100}%` }} />
-                        <div className="relative z-10 text-red-400 text-xs font-semibold w-full text-right">{callOI ? formatK(callOI) : '-'}</div>
+                        <div
+                          className="absolute right-0 top-1/2 -translate-y-1/2 h-4 rounded bg-red-200/20"
+                          style={{ width: `${(callOI / maxOI) * 100}%` }}
+                        />
+                        <div className="relative z-10 text-red-400 text-xs font-semibold w-full text-right">
+                          {callOI ? formatK(callOI) : "-"}
+                        </div>
                       </div>
                     </td>
-                    <td className="p-1 text-red-200 font-medium">{formatPrice(callLTP)}</td>
+                    <td className="p-1 text-red-200 font-medium">
+                      {formatPrice(callLTP)}
+                    </td>
                     {/* STRIKE */}
-                    <td className="p-1 bg-dark-bg-2 font-semibold text-blue-200 border-x border-neutral-700">{row.strike}</td>
+                    <td className="p-1 bg-zinc-800 font-semibold text-blue-200 border-x border-neutral-700">
+                      {row.strike}
+                    </td>
                     {/* PUTS */}
-                    <td className="p-1 text-gray-200">{iv ? formatPrice(iv) : '14.20'}</td>
-                    <td className="p-1 text-green-200 font-medium">{formatPrice(putLTP)}</td>
+                    <td className="p-1 text-gray-200">
+                      {iv ? formatPrice(iv) : "14.20"}
+                    </td>
+                    <td className="p-1 text-green-200 font-medium">
+                      {formatPrice(putLTP)}
+                    </td>
                     <td>
                       <div className="relative h-4 flex items-center">
-                        <div className="absolute left-0 top-1/2 -translate-y-1/2 h-4 rounded bg-green-200/20" style={{ width: `${(putOI / maxPutOI) * 100}%` }} />
-                        <div className="relative z-10 text-green-300 font-semibold" style={{ fontSize: '11px' }}>{putOI ? formatK(putOI) : '-'}</div>
+                        <div
+                          className="absolute left-0 top-1/2 -translate-y-1/2 h-4 rounded bg-green-200/20"
+                          style={{ width: `${(putOI / maxPutOI) * 100}%` }}
+                        />
+                        <div
+                          className="relative z-10 text-green-300 font-semibold"
+                          style={{ fontSize: "11px" }}
+                        >
+                          {putOI ? formatK(putOI) : "-"}
+                        </div>
                       </div>
                     </td>
-                    {!isMobile && <td className={`p-1 text-xs ${putOIChgPct < 0 ? 'text-red-400' : 'text-green-300'}`}>{putOIChgPct ? `${putOIChgPct > 0 ? '+' : ''}${putOIChgPct}%` : '-'}</td>}
+                    {!isMobile && (
+                      <td
+                        className={`p-1 text-xs ${
+                          putOIChgPct < 0 ? "text-red-400" : "text-green-300"
+                        }`}
+                      >
+                        {putOIChgPct
+                          ? `${putOIChgPct > 0 ? "+" : ""}${putOIChgPct}%`
+                          : "-"}
+                      </td>
+                    )}
                   </tr>
                 );
               })}

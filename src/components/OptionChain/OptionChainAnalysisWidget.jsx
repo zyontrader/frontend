@@ -315,7 +315,7 @@ const OptionChainAnalysisWidget = () => {
   };
 
   return (
-    <div className="w-full bg-dark-bg p-2 rounded-lg flex flex-col flex-1">
+    <div className="w-full p-2 rounded-lg flex flex-col flex-1 ">
       {/* Header Controls */}
       <div className="flex gap-2 items-center mb-4">
         <Select
@@ -341,7 +341,7 @@ const OptionChainAnalysisWidget = () => {
         <button
           onClick={handleRefresh}
           type="primary"
-          className="w-7 h-7 flex rounded bg-button-blue active:bg-blue-300 text-white shadow items-center justify-center"
+          className="w-7 h-7 flex rounded bg-blue-500 active:bg-blue-300 cursor-pointer !text-white shadow items-center justify-center"
           disabled={loading}
         >
           <ReloadOutlined style={{ fontSize: 18, fontWeight: 700 }} />

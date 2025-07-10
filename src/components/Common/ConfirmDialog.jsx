@@ -38,13 +38,13 @@ const ConfirmDialog = ({
             <div className="mt-2 text-neutral-400">{message}</div>
             <div className="mt-6 flex justify-end gap-3">
               <button
-                className="px-4 py-2 rounded bg-neutral-600 text-white font-semibold hover:bg-neutral-700 transition"
+                className="px-4 py-2 rounded bg-neutral-600  cursor-pointer !text-white font-semibold hover:bg-neutral-700 transition"
                 onClick={onCancel}
               >
                 {cancelText}
               </button>
               <button
-                className="px-4 py-2 rounded bg-red-600 text-white font-semibold hover:bg-red-700 transition"
+                className="px-4 py-2 rounded bg-red-600  cursor-pointer !text-white font-semibold hover:bg-red-700 transition"
                 onClick={onConfirm}
               >
                 {confirmText}

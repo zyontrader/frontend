@@ -35,7 +35,7 @@ const scriptsList = (data, classes, title) => (
             {data.map(idx => (
                 <div key={idx.scriptId} className='flex flex-1 items-center justify-between py-1 border-b border-neutral-700 last:border-none'>
                     <div className='text-sm md:text-base text-gray-300 font-semibold'>{idx.scriptId}</div>
-                    <div className={`rounded-md p-1 flex md:flex-col items-center justify-center w-[130px] ${idx.change >= 0 ? 'bg-price-green' : 'bg-price-red'}`}>
+                    <div className={`rounded-md p-1 flex md:flex-col items-center justify-center w-[130px] ${idx.change >= 0 ? 'bg-green-500' : 'bg-red-500'}`}>
                         <div className='text-white mr-1 font-semibold text-sm'>{formatPrice(idx.price)}</div>
                         <div className='text-white text-xs'>
                             <span className='hidden md:inline'>{idx.change >= 0 ? '+' : ''}{formatPrice(idx.change)}</span><span> ({formatPrice(idx.changePct)}%)</span>
@@ -54,7 +54,7 @@ const futuresList = (data, classes, title) => (
                 <div key={idx?.underlyingQuote?.scriptId} className='flex flex-1 flex-col items-center justify-between py-1 border-b border-neutral-700 last:border-none'>
                     <div className='text-base text-white font-semibold py-2'>{idx?.underlyingQuote?.scriptId}</div>
                     <div className='flex w-full'>
-                        <div className={`p-1 flex flex-col flex-1 items-center justify-center ${idx?.underlyingQuote?.change >= 0 ? 'text-price-green' : 'text-price-red'}`}>
+                        <div className={`p-1 flex flex-col flex-1 items-center justify-center ${idx?.underlyingQuote?.change >= 0 ? 'text-green-500' : 'text-red-500'}`}>
                             <div className='mr-1 font-semibold text-sm'>{formatPrice(idx?.underlyingQuote?.price)}</div>
                             <div className='text-xs'>
                                 ({idx?.underlyingQuote?.change >= 0 ? '+' : ''}{formatPrice(idx?.underlyingQuote?.changePct)}%)
@@ -131,7 +131,7 @@ const TopMoverCarouselCard = ({ scriptId, price, change, changePct }) => {
     return (
         <div className="bg-black shadow-lg rounded-lg shadow flex flex-col mx-2 relative overflow-hidden">
             <div className='flex-1 flex content-center justify-center text-center text-lg text-neutral-200 p-2'>{scriptId}</div>
-            <div className={`flex flex-col items-center justify-center flex-1 ${isPositive ? 'bg-price-green' : 'bg-price-red'}`}>
+            <div className={`flex flex-col items-center justify-center flex-1 ${isPositive ? 'bg-green-500' : 'bg-red-500'}`}>
                 <div className='flex-1 flex flex-col p-2'>
                     <div className="font-semibold text-base text-gray-900 mb-1 text-center">{formatPrice(typeof price === 'object' ? price.parsedValue : price)}</div>
                     <div className={`text-sm font-semibold text-center `}>{isPositive ? '+' : ''}{formatPrice(typeof change === 'object' ? change.parsedValue : change)}

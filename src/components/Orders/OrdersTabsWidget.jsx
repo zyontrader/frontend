@@ -47,7 +47,7 @@ const OrdersTabsWidget = () => {
         {tabDefs.map(tab => (
           <button
             key={tab.key}
-            className={`flex-1 text-center py-2 text-sm md:text-base font-medium transition-colors duration-150 ${activeTab === tab.key ? 'text-blue-400 border-b-2 border-blue-400' : 'text-neutral-400'}`}
+            className={`flex-1 text-center py-2 text-sm md:text-base font-medium transition-colors duration-150 cursor-pointer ${activeTab === tab.key ? '!text-blue-400 border-b-2 border-blue-400' : '!text-neutral-400'}`}
             onClick={() => setActiveTab(tab.key)}
           >
             {tab.label} <span className="text-sm md:text-base">({counts[tab.key]})</span>
