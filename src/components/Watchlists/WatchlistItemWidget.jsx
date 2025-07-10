@@ -9,6 +9,7 @@ import * as mobileDataStore from '../../store/mobileDataStore';
 import { getIsMobile } from '../../store/uiStore';
 import eventBus, { EVENT_TYPES } from '../../utils/eventBus';
 
+
 // Custom Delete Icon SVG (just an X, matching Buy/Sell style)
 const DeleteIcon = ({ className = '' }) => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -107,19 +108,19 @@ const WatchlistItemWidget = ({ scriptId, onDelete }) => {
                 <div className="hidden md:block relative w-[2px] self-stretch">
                     <div className="right-0 top-0 bottom-0 absolute hover-actions watchlist-item-actions items-center gap-2 mx-4 hidden group-hover:flex">
                         <button
-                            className="w-6 h-6 flex items-center justify-center rounded bg-button-blue active:bg-blue-300 text-white shadow"
+                            className="w-6 h-6 flex items-center justify-center rounded bg-blue-600 active:bg-blue-300 cursor-pointer !text-white shadow"
                             onClick={handleBuy}
                             title="Buy">
                             <BuyIcon />
                         </button>
                         <button
-                            className="w-6 h-6 flex items-center justify-center rounded bg-red-600 text-white active:bg-red-500 shadow"
+                            className="w-6 h-6 flex items-center justify-center rounded bg-red-600 cursor-pointer !text-white active:bg-red-500 shadow"
                             onClick={handleSell}
                             title="Sell">
                             <SellIcon />
                         </button>
                         <button
-                            className="w-6 h-6 flex items-center justify-center rounded bg-fuchsia-700 text-white active:bg-fuchsia-800 shadow"
+                            className="w-6 h-6 flex items-center justify-center rounded bg-fuchsia-700 cursor-pointer !text-white active:bg-fuchsia-800 shadow"
                             onClick={handleDelete}
                             title="Delete">
                             <DeleteIcon />
@@ -127,8 +128,8 @@ const WatchlistItemWidget = ({ scriptId, onDelete }) => {
                     </div>
                 </div>
                 <div className="watchlist-item-price flex flex-col items-end">
-                    <div className={`watchlist-item-price-main text-sm md:text-base ${priceColor === 'green' ? 'text-price-green' : 'text-price-red'}`}>{formatPrice(price)}</div>
-                    <div className="watchlist-item-price-change text-price-neutral text-right text-xs">
+                    <div className={`watchlist-item-price-main text-sm md:text-base ${priceColor === 'green' ? 'text-green-500' : 'text-red-500'}`}>{formatPrice(price)}</div>
+                    <div className="watchlist-item-price-change !text-neutral-400 text-right text-xs">
                         {formatPrice(change)} ({formatPrice(changePct)}%)
                     </div>
                 </div>

@@ -1,0 +1,85 @@
+
+  
+  body, .font-family-roboto {
+    font-family: Roboto,Helvetica Neue,sans-serif !important;
+  }
+  
+  /* Options Analysis Widget Styles */
+  .options-tabs .ant-tabs-tab {
+    color: #9ca3af !important;
+  }
+  
+  .options-tabs .ant-tabs-tab-active {
+    color: #3b82f6 !important;
+  }
+  
+  .options-tabs .ant-tabs-ink-bar {
+    background: #3b82f6 !important;
+  }
+  
+  .options-table .ant-table-thead > tr > th {
+    background: #1f2937 !important;
+    color: #f9fafb !important;
+    border-bottom: 1px solid #374151 !important;
+  }
+  
+  .options-table .ant-table-tbody > tr > td {
+    background: #111827 !important;
+    color: #f9fafb !important;
+    border-bottom: 1px solid #374151 !important;
+  }
+  
+  .options-table .ant-table-tbody > tr:hover > td {
+    background: #1f2937 !important;
+  }
+  
+  .options-table .ant-table {
+    background: #111827 !important;
+  }
+  
+  .ant-card {
+    background: #1f2937 !important;
+    border: 1px solid #374151 !important;
+  }
+  
+  .ant-card-head {
+    background: #111827 !important;
+    border-bottom: 1px solid #374151 !important;
+  }
+  
+  .ant-card-head-title {
+    color: #f9fafb !important;
+  }
+  
+  .ant-select-selector {
+    background: #374151 !important;
+    border: 1px solid #4b5563 !important;
+    color: #f9fafb !important;
+  }
+  
+  .ant-input {
+    background: #374151 !important;
+    border: 1px solid #4b5563 !important;
+    color: #f9fafb !important;
+  }
+  
+  .ant-input::placeholder {
+    color: #9ca3af !important;
+  }
+  
+  .ant-select-dropdown {
+    background: #1f2937 !important;
+    border: 1px solid #374151 !important;
+  }
+  
+  .ant-select-item {
+    color: #f9fafb !important;
+  }
+  
+  .ant-select-item-option-selected {
+    background: #374151 !important;
+  }
+  
+  .ant-select-item-option-active {
+    background: #4b5563 !important;
+  }

@@ -4,6 +4,7 @@ import PositionsWidget from './Positions/PositionsWidget';
 import { getSidebarLeftVisible } from '../store/uiStore';
 import eventBus, { EVENT_TYPES } from '../utils/eventBus';
 
+
 const Sidebar = ({ activeTab }) => {
   const [visible, setVisible] = useState(getSidebarLeftVisible());
 

@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import { Splitter } from "antd";
 // eslint-disable-next-line no-unused-vars
 import websocketService from '../../api/websocket';
-import "./Trader.css";
 import "antd/dist/reset.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

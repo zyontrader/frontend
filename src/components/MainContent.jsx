@@ -8,6 +8,7 @@ import BasketsComponent from './Baskets/BasketsComponent';
 import { setStrategyTabActive } from '../store/uiStore';
 const tabs = ['Positions', 'Orders', 'Markets', 'Basket', 'Options'];
 
+
 const MainContent = ({ activeTab, setActiveTab }) => {
   const marketRef = useRef();
 

@@ -10,6 +10,7 @@ import eventBus, { EVENT_TYPES } from '../../utils/eventBus';
 import ScriptsSearchWidget from '../Common/ScriptsSearchWidget';
 import { getScript } from '../../store/scriptsStore';
 import { formatPrice } from '../../utils/formatter';
+
 const { Option } = Select;
 
 const OptionsAnalyticsWidget = React.memo(React.forwardRef(({ enableScriptSearch = false, allowDeletePositions = false }, ref) => {

@@ -11,6 +11,7 @@ import { useState } from 'react';
 import eventBus, { EVENT_TYPES } from '../utils/eventBus';
 import WatchlistsWidget from './Watchlists/WatchlistsWidget';
 
+
 const MobileContent = () => {
 
   const [activeTab, setActiveTab] = useState('Home');

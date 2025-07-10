@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Spin, Card } from 'antd';
 import { getBaskets, updateBasket, deleteBasket } from '../../api/apis';
 import { DeleteOutlined, LineChartOutlined, EditOutlined } from '@ant-design/icons';
-
 import BasketOrderItemWidget from './BasketOrderItemWidget';
 import ScriptsSearchWidget from '../Common/ScriptsSearchWidget';
 import { getScript } from '../../store/scriptsStore';

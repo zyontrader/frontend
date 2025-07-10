@@ -4,6 +4,7 @@ import ScriptsSearchWidget from '../Common/ScriptsSearchWidget';
 import { addItemToWatchlist, deleteWatchlistItem } from '../../api/apis';
 import { showErrorToast } from '../../utils/utils';
 
+
 const WatchlistEmptyState = () => (
   <div className="text-gray-400 flex flex-1 text-lg justify-center italic self-stretch items-center p-4">No watchlist selected.</div>
 );
