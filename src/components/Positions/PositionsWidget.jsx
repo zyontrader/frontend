@@ -72,7 +72,7 @@ const PositionsWidget = () => {
     }, 0);
   }, [positions, quotes]);
 
-  const totalPnLColor = totalPnL >= 0 ? 'text-price-green' : 'text-price-red';
+  const totalPnLColor = totalPnL >= 0 ? 'text-green-500' : 'text-red-500';
 
   const handleAnalyzeClick = () => {
     setShowAnalyticsPopup(true);
@@ -95,7 +95,7 @@ const PositionsWidget = () => {
       {/* Actions */}
       <div className="flex justify-end gap-3 text-sm mb-2 mx-3">
         <button
-          className="text-orange-400 hover:underline"
+          className="!text-orange-400 hover:underline cursor-pointer"
           disabled={loadingExitAll}
           onClick={async () => {
             setLoadingExitAll(true);
@@ -113,7 +113,7 @@ const PositionsWidget = () => {
         </button>
         {!hideAnalyze && (
           <button 
-            className="text-orange-400 hover:underline"
+            className="!text-orange-400 hover:underline cursor-pointer"
             onClick={handleAnalyzeClick}
           >
             Analyze
