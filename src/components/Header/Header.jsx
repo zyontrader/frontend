@@ -183,7 +183,7 @@ const Header = () => {
           </div>
         </div>
       </Drawer>
-      <div className="flex items-center justify-between bg-dark-bg px-2 py-0 pt-2 md:py-2 shadow-md shadow-neutral-800 font-family-roboto">
+      <div className="flex items-center justify-between !bg-black/40 px-2 py-0 pt-2 md:py-2 shadow-md shadow-neutral-800 font-family-roboto">
         {/* Left: Logo and account selector */}
         <div className="flex items-center">
           {/* Menu icon for mobile */}
