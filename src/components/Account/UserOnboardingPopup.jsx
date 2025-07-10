@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const UserOnboardingPopup = ({ isOpen }) => {
   if (!isOpen) return null;
 
