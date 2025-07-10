@@ -27,7 +27,7 @@ const MobileHomeWidget = () => {
         {tabs.map(tab => (
           <button
             key={tab}
-            className={`pb-2 px-2 text-base font-medium ${activeTab === tab ? 'border-b-2 border-blue-500 text-blue-400' : 'text-gray-400'}`}
+            className={`pb-2 px-2 text-base font-medium cursor-pointer ${activeTab === tab ? 'border-b-2 border-blue-500 !text-blue-400' : '!text-gray-400'}`}
             onClick={() => setActiveTab(tab)}
           >
             {tab}

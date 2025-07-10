@@ -160,7 +160,7 @@ function TraderContent() {
               >
                 <Sidebar activeTab={activeTab} />
               </Splitter.Panel>
-              <Splitter.Panel className="flex-col flex">
+              <Splitter.Panel className="flex flex-col ">
                 <MainContent
                   activeTab={activeTab}
                   setActiveTab={setActiveTab}
