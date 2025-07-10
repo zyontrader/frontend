@@ -28,7 +28,7 @@ const FloatingBottomLeftPanel = ({
       className={`${expanded ? 'h-[50vh]' : 'h-6'} w-96 fixed left-0 bottom-0 z-50 bg-neutral-900 border border-neutral-700 rounded-tr-xl shadow-lg transition-all duration-200 overflow-hidden flex flex-col`}
     >
       <div
-        className="h-6 flex items-center text-sm justify-between cursor-pointer px-4 py-1 bg-price-green text-neutral-800 font-semibold select-none rounded-tr"
+        className="h-6 flex items-center text-sm justify-between cursor-pointer px-4 py-1 bg-green-500 text-neutral-800 font-semibold select-none rounded-tr"
         onClick={() => setExpanded(e => !e)}
       >
         <span>{isStrategyBuilder ? 'Positions' : header}</span>
