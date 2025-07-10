@@ -48,7 +48,7 @@ const MainContent = ({ activeTab, setActiveTab }) => {
           </button>
         )}
       </div>
-      <div className="flex-1 overflow-y-auto flex flex-col">
+      <div className="flex flex-col !overflow-y-auto flex-1 ">
         {/* Content */}
         {activeTab === "Positions" && <PositionsWidget />}
         {activeTab === "Orders" && <OrdersTabsWidget />}

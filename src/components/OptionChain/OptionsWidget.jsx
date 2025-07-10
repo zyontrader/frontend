@@ -23,7 +23,7 @@ const OptionsWidget = () => {
   return (
     <div className="w-full font-family-roboto overflow-y-auto flex-1 flex flex-col">
       {/* Custom Tab Bar */}
-      <div className="flex border-b border-neutral-700 mb-2 flex">
+      <div className="flex border-b border-neutral-700 mb-2">
         {tabDefs.map(tab => (
           <button
             key={tab.key}
@@ -35,7 +35,7 @@ const OptionsWidget = () => {
         ))}
       </div>
       {/* Tab Content */}
-      <div className='overflow-y-auto flex-1 flex'>
+      <div className='flex !overflow-y-auto flex-1 '>
         {activeTab === 'chain' && (
           <OptionChainDisplayWidget />
         )}
