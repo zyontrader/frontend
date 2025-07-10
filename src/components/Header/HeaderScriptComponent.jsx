@@ -27,7 +27,7 @@ const HeaderScriptComponent = ({ scriptId }) => {
 
   const { price, change } = data;
   const isPositive = change >= 0 || !change;
-  const color = isPositive ? 'text-price-green' : 'text-price-red';
+  const color = isPositive ? 'text-green-500' : 'text-red-500';
 
   return (
     <div className="text-center hidden [&:nth-child(1)]:block [&:nth-child(2)]:block md:block py-1 justify-center rounded items-center font-family-roboto">

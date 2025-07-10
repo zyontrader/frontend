@@ -75,7 +75,7 @@ const Header = () => {
 
   const menu = isSignedIn && (
     <Menu onClick={handleMenuClick}>
-      <Menu.Item key="welcome" disabled style={{ cursor: 'default', fontWeight: 'bold', color: '#555', background: '#f6f6f6' }}>
+      <Menu.Item key="welcome" disabled  style={{ cursor: 'default', fontWeight: 'bold', color: '#555', background: '#f6f6f6' }}>
         Hi, {user.name || user.userName || 'User'}
       </Menu.Item>
       <Menu.Divider />
@@ -113,7 +113,7 @@ const Header = () => {
         open={drawerOpen}
         width={300}
         closeIcon={false}
-        className="md:hidden !bg-neutral-800 p-4 !text-neutral-200"
+        className="md:hidden !bg-neutral-800 p-4 text-neutral-200"
         bodyStyle={{ padding: 0 }}>
         <div>
           <div className='flex items-center justify-start gap-2'>
@@ -133,7 +133,7 @@ const Header = () => {
               setDrawerOpen(false);
               userStore.setShowAccountSelectionPopup(true);
             }}>
-            <span className="flex items-center text-price-green">
+            <span className="flex items-center text-green-500">
               <span>{accountSelected}</span>
               <span><svg width="16" height="16" fill="none" viewBox="0 0 24 24" className="ml-1"><path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
             </span>
@@ -145,7 +145,7 @@ const Header = () => {
           <div className='border-b border-neutral-400 my-2'></div>
           <div>
             <div
-              className="pb-2 font-semibold text-base text-price-red cursor-pointer"
+              className="pb-2 font-semibold text-base text-red-500 cursor-pointer"
               onClick={() => {
                 console.log('Sign Out clicked');
                 setDrawerOpen(false);
@@ -189,7 +189,7 @@ const Header = () => {
           {/* Menu icon for mobile */}
           {isSignedIn && (
             <button
-              className="block md:hidden mr-1 p-1 focus:outline-none text-white"
+              className="block md:hidden mr-1 p-1 focus:outline-none !text-white cursor-pointer"
               aria-label="Open menu"
               onClick={() => setDrawerOpen(true)}>
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -204,8 +204,8 @@ const Header = () => {
           <button
             className="hidden md:block items-center text-logo-green font-bold py-1 rounded focus:outline-none"
             onClick={() => userStore.setShowAccountSelectionPopup(true)} >
-            <span className="flex items-center">
-              <span>{accountSelected}</span>
+            <span className="flex items-center text-green-500">
+              <span >{accountSelected}</span>
               <span><svg width="16" height="16" fill="none" viewBox="0 0 24 24" className="ml-1"><path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
             </span>
           </button>
@@ -227,7 +227,7 @@ const Header = () => {
           )}
           {/* User sign in widget */}
           {isSignedIn ? (
-            <Dropdown overlay={menu} placement="bottomRight" trigger={["click"]} className='hidden mr-4 md:block'>
+            <Dropdown overlay={menu} placement="bottomRight" trigger={["click"]} className='!hidden mr-4 md:!block'>
               <Avatar
                 style={{ backgroundColor: '#1890ff', cursor: 'pointer' }}
                 icon={<UserOutlined />}
