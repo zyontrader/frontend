@@ -13,6 +13,7 @@ import * as optionChainsStore from '../store/optionChainsStore';
 // Use environment variable for API base URL
 const BASE_URL = import.meta.env.VITE_APP_API_BASE_URL || '/api';
 
+console.log(BASE_URL)
 // Common POST function
 export async function post(endpoint, params = {}, creds) {
   const headers = {

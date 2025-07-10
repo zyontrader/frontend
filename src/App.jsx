@@ -20,6 +20,8 @@ import Faq from './components/Home/Faq';
 import Trader from './components/Trader/Trader';
 
 function App() {
+
+  console.log(import.meta.env.VITE_APP_API_BASE_URL)
   return (
     <>
       {/* <Topbar /> */}

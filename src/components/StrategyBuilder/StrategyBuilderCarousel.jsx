@@ -36,7 +36,7 @@ const StrategyBuilderCarousel = ({ data , onSelect }) => {
             <div className="cursor-pointer w-[120px] h-[120px] bg-gradient-to-b from-[#232526] to-[#000000] rounded-xl p-[5px] m-[5px] flex flex-col items-center justify-center shadow-lg border border-neutral-700 hover:border-blue-500 transition-all duration-200">
               <div className="flex-1 flex items-center justify-center">
                 <img
-                  src={`${process.env.PUBLIC_URL}/strategies/${item.image}`}
+                  src={`${import.meta.env.PUBLIC_URL}/strategies/${item.image}`}
                   alt={item.label}
                   className="w-full object-contain drop-shadow-lg"
                   style={{ background: 'transparent' }}

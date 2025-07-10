@@ -49,7 +49,7 @@ class WebSocketService {
 
     this.isConnecting = true;
     
-    const baseUrl = process.env.REACT_APP_API_BASE_URL || '/api';
+    const baseUrl = import.meta.env.VITE_APP_API_BASE_URL || '/api';
     const wsUrl = baseUrl.replace(/^http/, 'ws').replace(/^https/, 'wss');
     const wsEndpoint = `${wsUrl}/ws`;
 
