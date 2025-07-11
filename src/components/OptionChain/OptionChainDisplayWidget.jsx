@@ -1,30 +1,36 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { formatPrice } from '../../utils/formatter';
-import { Select, Spin } from 'antd';
-import { ReloadOutlined } from '@ant-design/icons';
+import React, { useRef, useEffect, useState } from "react";
+import { formatPrice } from "../../utils/formatter";
+import { Select, Spin } from "antd";
+import { ReloadOutlined } from "@ant-design/icons";
 import {
   getSelectedUnderlying,
   getSelectedExpiry,
   getUnderlyings,
   getExpiries,
-} from '../../store/optionChainsStore';
-import { getIsMobile } from '../../store/uiStore';
-import { optionChainAnalysis } from '../../api/apis';
+} from "../../store/optionChainsStore";
+import { getIsMobile } from "../../store/uiStore";
+import { optionChainAnalysis } from "../../api/apis";
 
 const { Option } = Select;
 
 // Helper for K/M formatting
 function formatK(value) {
-  if (value >= 1_000_000) return (value / 1_000_000).toFixed(1).replace(/\.0$/, '') + 'M';
-  if (value >= 1_000) return (value / 1_000).toFixed(1).replace(/\.0$/, '') + 'K';
+  if (value >= 1_000_000)
+    return (value / 1_000_000).toFixed(1).replace(/\.0$/, "") + "M";
+  if (value >= 1_000)
+    return (value / 1_000).toFixed(1).replace(/\.0$/, "") + "K";
   return value;
 }
 
 const OptionChainDisplayWidget = () => {
   const scrollContainerRef = useRef(null);
   const atmRowRef = useRef(null);
-  const [selectedUnderlying, setSelectedUnderlyingState] = useState(getSelectedUnderlying());
-  const [selectedExpiry, setSelectedExpiryState] = useState(getSelectedExpiry());
+  const [selectedUnderlying, setSelectedUnderlyingState] = useState(
+    getSelectedUnderlying()
+  );
+  const [selectedExpiry, setSelectedExpiryState] = useState(
+    getSelectedExpiry()
+  );
   const [underlyings, setUnderlyingsState] = useState(getUnderlyings());
   const [expiries, setExpiriesState] = useState(getExpiries());
 
@@ -38,20 +44,20 @@ const OptionChainDisplayWidget = () => {
     setLoading(true);
     setError(null);
     optionChainAnalysis({ underlying, expiry })
-      .then(data => {
+      .then((data) => {
         setChainData(data.optionChainAnalysis);
         setSelectedUnderlyingState(data?.optionChainAnalysis?.underlying);
         setSelectedExpiryState(data?.optionChainAnalysis?.expiry);
         setUnderlyingsState(data?.optionUnderlyings || []);
         setExpiriesState(data?.optionExpirires || []);
       })
-      .catch(err => {
-        setError('Failed to load option chain. Please try again.');
+      .catch((err) => {
+        setError("Failed to load option chain. Please try again.");
         setChainData(null);
-        console.error('optionChainAnalysis error', err);
+        console.error("optionChainAnalysis error", err);
       })
       .finally(() => setLoading(false));
-  }
+  };
 
   // On mount, trigger optionChainAnalysis with selected underlying and expiry
   useEffect(() => {
@@ -61,15 +67,19 @@ const OptionChainDisplayWidget = () => {
 
   const strikes = chainData?.optionChain?.strikes || [];
   const lastUnderlying = chainData?.underlyingPrice || 0;
-  const atmIdx = (strikes.length && lastUnderlying != null)
-    ? strikes.reduce((bestIdx, row, idx) => {
-      return Math.abs(row.strike - lastUnderlying) < Math.abs(strikes[bestIdx].strike - lastUnderlying) ? idx : bestIdx;
-    }, 0)
-    : 0;
+  const atmIdx =
+    strikes.length && lastUnderlying != null
+      ? strikes.reduce((bestIdx, row, idx) => {
+          return Math.abs(row.strike - lastUnderlying) <
+            Math.abs(strikes[bestIdx].strike - lastUnderlying)
+            ? idx
+            : bestIdx;
+        }, 0)
+      : 0;
 
   // Find max OI for bar scaling
-  const maxCallOI = Math.max(...strikes.map(row => row.callQuote?.oi || 0));
-  const maxPutOI = Math.max(...strikes.map(row => row.putQuote?.oi || 0));
+  const maxCallOI = Math.max(...strikes.map((row) => row.callQuote?.oi || 0));
+  const maxPutOI = Math.max(...strikes.map((row) => row.putQuote?.oi || 0));
   const maxOI = Math.max(maxCallOI, maxPutOI);
 
   useEffect(() => {
@@ -79,10 +89,14 @@ const OptionChainDisplayWidget = () => {
       const container = scrollContainerRef.current;
       const rowRect = row.getBoundingClientRect();
       const containerRect = container.getBoundingClientRect();
-      const offset = rowRect.top - containerRect.top - containerRect.height / 2 + rowRect.height / 2;
+      const offset =
+        rowRect.top -
+        containerRect.top -
+        containerRect.height / 2 +
+        rowRect.height / 2;
       container.scrollTo({
         top: container.scrollTop + offset,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   }, [chainData]);
@@ -134,7 +148,7 @@ const OptionChainDisplayWidget = () => {
         <button
           onClick={handleRefresh}
           type="primary"
-          className="w-7 h-7 flex rounded bg-blue-500 active:bg-blue-300 cursor-pointer !text-white shadow items-center justify-center"
+          className="w-7 h-7 flex rounded bg-button-blue active:bg-blue-300 cursor-pointer !text-white shadow items-center justify-center"
           disabled={loading}
         >
           <ReloadOutlined style={{ fontSize: 18, fontWeight: 700 }} />
@@ -155,33 +169,33 @@ const OptionChainDisplayWidget = () => {
         ) : (
           <table className="w-full text-xs font-family-roboto">
             <thead className="sticky top-0 z-30">
-              <tr className="bg-zinc-800 text-neutral-300 text-center">
+              <tr className="bg-dark-bg-2 text-neutral-300 text-center">
                 <th
                   colSpan={3}
-                  className="border-r border-neutral-700 text-red-500 font-semibold text-base py-2 bg-zinc-800"
+                  className="border-r border-neutral-700 text-red-300 font-semibold text-base py-2 bg-dark-bg-2"
                 >
                   CALLS
                 </th>
                 <th
                   colSpan={2}
-                  className="bg-zinc-800 text-neutral-400 font-semibold text-sm py-2"
+                  className="bg-dark-bg-2 text-neutral-400 font-semibold text-sm py-2"
                 ></th>
                 <th
                   colSpan={3}
-                  className="border-l border-neutral-700 text-green-500 font-semibold text-base py-2 bg-zinc-800"
+                  className="border-l border-neutral-700 text-green-300 font-semibold text-base py-2 bg-dark-bg-2"
                 >
                   PUTS
                 </th>
               </tr>
-              <tr className="bg-zinc-800 text-neutral-400 text-center text-sm">
-                {!isMobile && <th className=" bg-zinc-800">OI Chg%</th>}
-                <th className=" bg-zinc-800">OI</th>
-                <th className=" bg-zinc-800">LTP</th>
-                <th className=" bg-zinc-800">Strike</th>
-                <th className=" bg-zinc-800">IV</th>
-                <th className=" bg-zinc-800">LTP</th>
-                <th className=" bg-zinc-800">OI</th>
-                {!isMobile && <th className=" bg-zinc-800">OI Chg%</th>}
+              <tr className="bg-dark-bg-2 text-neutral-400 text-center text-sm">
+                {!isMobile && <th className=" bg-dark-bg-2">OI Chg%</th>}
+                <th className="bg-dark-bg-2">OI</th>
+                <th className="bg-dark-bg-2">LTP</th>
+                <th className="bg-dark-bg-2">Strike</th>
+                <th className="bg-dark-bg-2">IV</th>
+                <th className="bg-dark-bg-2">LTP</th>
+                <th className="bg-dark-bg-2">OI</th>
+                {!isMobile && <th className="bg-dark-bg-2">OI Chg%</th>}
               </tr>
             </thead>
             <tbody>
@@ -206,7 +220,7 @@ const OptionChainDisplayWidget = () => {
                     key={row.strike}
                     ref={isATM ? atmRowRef : null}
                     className={`text-center text-sm ${
-                      isATM ? "bg-blue-950/40" : idx % 2 ? "bg-zinc-800" : ""
+                      isATM ? "bg-blue-950/40" : idx % 2 ? "bg-dark-bg-2" : ""
                     }`}
                   >
                     {/* CALLS */}
@@ -236,7 +250,7 @@ const OptionChainDisplayWidget = () => {
                       {formatPrice(callLTP)}
                     </td>
                     {/* STRIKE */}
-                    <td className="p-1 bg-zinc-800 font-semibold text-blue-200 border-x border-neutral-700">
+                    <td className="p-1 bg-dark-bg-2 font-semibold text-blue-200 border-x border-neutral-700">
                       {row.strike}
                     </td>
                     {/* PUTS */}
@@ -282,4 +296,4 @@ const OptionChainDisplayWidget = () => {
   );
 };
 
-export default OptionChainDisplayWidget; 
+export default OptionChainDisplayWidget;

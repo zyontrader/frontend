@@ -13,6 +13,20 @@ body,
   -ms-user-select: none; /* IE10+/Edge */
 }
 
+@theme {
+  --color-price-red: #DD6060;
+  --color-price-green: #55BB55;
+  --color-price-neutral: #AAAAAA;
+  --color-logo-green: #009900;
+  --color-zyon-blue: #6699FF;
+  --color-button-blue: #1890FF;
+  --color-brighter-green: #6D6;
+  --color-order-header-blue: #4080DD;
+  --color-order-header-red: #DD8833;
+  --color-dark-bg: #18191A;
+  --color-dark-bg-2: #232526;
+  --color-header-green: #44c060;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -44,4 +58,9 @@ code {
 
 .custom-toast-success .Toastify__progress-bar {
   background: #6d67 !important;
+}
+
+.recharts-responsive-container > div {
+  width: auto !important;
+  height: auto !important;
 }

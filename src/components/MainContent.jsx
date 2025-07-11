@@ -42,7 +42,7 @@ const MainContent = ({ activeTab, setActiveTab }) => {
           <button
             onClick={handleRefresh}
             type="primary"
-            className="w-8 h-8 flex items-center justify-center rounded bg-blue-500 active:bg-blue-300 !text-white shadow !ml-auto !mt-[-15px] cursor-pointer"
+            className="w-8 h-8 flex items-center justify-center rounded bg-button-blue active:bg-blue-300 !text-white shadow !ml-auto !mt-[-15px] cursor-pointer"
           >
             <ReloadOutlined style={{ fontSize: 22, fontWeight: 700 }} />
           </button>

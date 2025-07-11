@@ -121,7 +121,7 @@ const ScriptsSearchWidget = ({
       <div className="flex items-center border-b border-gray-400">
         <input
           type="text"
-          className="w-full px-2 py-1 rounded-none border-0 focus:outline-none bg-transparent !text-gray-400 placeholder:!text-gray-400 !text-base "
+          className="w-full px-2 py-1 rounded-none border-0 focus:outline-none bg-transparent !text-neutral-400 placeholder:!text-neutral-400 !text-base "
           placeholder="Search scripts..."
           value={query}
           onChange={handleInputChange}
@@ -162,7 +162,7 @@ const ScriptsSearchWidget = ({
                     )}
                     <div className="hidden md:flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                       <button
-                        className="w-8 h-8 flex items-center justify-center rounded bg-blue-700 active:bg-blue-300 !text-white shadow cursor-pointer"
+                        className="w-8 h-8 flex items-center justify-center rounded bg-button-blue active:bg-blue-300 !text-white shadow cursor-pointer"
                         title="Buy"
                         onClick={(e) => handleBuy(script, e)}
                       >

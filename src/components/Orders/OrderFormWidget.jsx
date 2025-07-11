@@ -187,7 +187,7 @@ const OrderFormWidget = ({ onCancel, onSuccess }) => {
           <span className="text-neutral-400 text-sm w-16">Quantity:</span>
           <input
             type="number"
-            className={`w-28 px-2 py-1 rounded border border-neutral-600 bg-neutral-800 text-white mr-6 outline-none ${orderType === 'BUY' ? 'border-order-header-blue' : 'border-order-header-red'}`}
+            className={`w-28 px-2 py-1 rounded border border-neutral-600 bg-neutral-800 !text-white mr-6 outline-none ${orderType === 'BUY' ? 'border-order-header-blue' : 'border-order-header-red'}`}
             value={editOrder.orderQuantity || 0}
             onChange={handleQuantityChange}
             step={editOrder.lotSize}
@@ -196,7 +196,7 @@ const OrderFormWidget = ({ onCancel, onSuccess }) => {
           {(editOrder.chips || []).map((chip) => (
             <button
               key={chip}
-              className="px-3 py-1 rounded bg-neutral-800 text-sm text-neutral-300 border border-neutral-600 hover:bg-neutral-700"
+              className="px-3 py-1 rounded cursor-pointer bg-neutral-800 text-sm !text-neutral-300 border border-neutral-600 hover:bg-neutral-700"
               onClick={() => handleChipClick(chip)}
             >
               {chip}
@@ -208,19 +208,19 @@ const OrderFormWidget = ({ onCancel, onSuccess }) => {
         <div className="flex items-center gap-2 mb-6">
           <span className="text-neutral-400 text-sm  w-16">Type:</span>
           <button
-            className={`px-4 py-1 rounded text-sm border font-bold ${kind === 'MARKET' ? (orderType === 'BUY' ? 'border-order-header-blue text-order-header-blue' : 'border-order-header-red text-order-header-red') : 'border-neutral-400 text-neutral-300'}`}
+            className={`px-4 py-1 rounded text-sm border font-bold cursor-pointer ${kind === 'MARKET' ? (orderType === 'BUY' ? 'border-order-header-blue !text-order-header-blue' : 'border-order-header-red !text-order-header-red') : 'border-neutral-400 !text-neutral-300'}`}
             onClick={() => handleKindChange('MARKET')}
           >
             Market
           </button>
           <button
-            className={`px-4 py-1 rounded text-sm border font-bold ${kind === 'LIMIT' ? (orderType === 'BUY' ? 'border-order-header-blue text-order-header-blue' : 'border-order-header-red text-order-header-red') : 'border-neutral-400 text-neutral-300'}`}
+            className={`px-4 py-1 rounded text-sm border font-bold cursor-pointer ${kind === 'LIMIT' ? (orderType === 'BUY' ? 'border-order-header-blue !text-order-header-blue' : 'border-order-header-red !text-order-header-red') : 'border-neutral-400 !text-neutral-300'}`}
             onClick={() => handleKindChange('LIMIT')}
           >
             Limit
           </button>
           <button
-            className={`px-4 py-1 rounded text-sm border font-bold ${kind === 'SL' ? (orderType === 'BUY' ? 'border-order-header-blue text-order-header-blue' : 'border-order-header-red text-order-header-red') : 'border-neutral-400 text-neutral-300'}`}
+            className={`px-4 py-1 rounded text-sm border font-bold cursor-pointer ${kind === 'SL' ? (orderType === 'BUY' ? 'border-order-header-blue !text-order-header-blue' : 'border-order-header-red !text-order-header-red') : 'border-neutral-400 !text-neutral-300'}`}
             onClick={() => handleKindChange('SL')}
           >
             Stop Loss
@@ -238,7 +238,7 @@ const OrderFormWidget = ({ onCancel, onSuccess }) => {
                     <input
                       type="number"
                       step="0.50"
-                      className={`w-32 px-2 py-1 rounded border border-neutral-600 bg-neutral-800 text-white outline-none ${orderType === 'BUY' ? 'border-order-header-blue' : 'border-order-header-red'}`}
+                      className={`w-32 px-2 py-1 rounded border border-neutral-600 bg-neutral-800 !text-white outline-none ${orderType === 'BUY' ? 'border-order-header-blue' : 'border-order-header-red'}`}
                       value={editOrder.limitPrice || 0}
                       onChange={handleLimitPriceChange}
                     />
@@ -251,7 +251,7 @@ const OrderFormWidget = ({ onCancel, onSuccess }) => {
                       <input
                         type="number"
                         step="0.50"
-                        className={`w-32 px-2 py-1 rounded border border-neutral-600 bg-neutral-800 text-white outline-none ${orderType === 'BUY' ? 'border-order-header-blue' : 'border-order-header-red'}`}
+                        className={`w-32 px-2 py-1 rounded border border-neutral-600 bg-neutral-800 !text-white outline-none ${orderType === 'BUY' ? 'border-order-header-blue' : 'border-order-header-red'}`}
                         value={editOrder.triggerPrice || 0}
                         onChange={handleTriggerPriceChange}
                       />
@@ -261,7 +261,7 @@ const OrderFormWidget = ({ onCancel, onSuccess }) => {
                       <input
                         type="number"
                         step="0.50"
-                        className={`w-32 px-2 py-1 rounded border border-neutral-600 bg-neutral-800 text-white outline-none ${orderType === 'BUY' ? 'border-order-header-blue' : 'border-order-header-red'}`}
+                        className={`w-32 px-2 py-1 rounded border border-neutral-600 bg-neutral-800 !text-white outline-none ${orderType === 'BUY' ? 'border-order-header-blue' : 'border-order-header-red'}`}
                         value={editOrder.limitPrice || 0}
                         onChange={handleLimitPriceChange}
                       />
@@ -273,7 +273,7 @@ const OrderFormWidget = ({ onCancel, onSuccess }) => {
           </div>
           <div className="flex justify-center md:justify-end gap-4 w-full md:w-auto pt-5 md:pt-0">
             <button
-              className={`px-8 py-2 rounded text-white font-bold text-base ${orderType === 'BUY' ? 'bg-order-header-blue active:bg-blue-700' : 'bg-order-header-red active:bg-red-700'}`}
+              className={`px-8 py-2 rounded cursor-pointer !text-white font-bold text-base ${orderType === 'BUY' ? 'bg-order-header-blue active:bg-blue-700' : 'bg-order-header-red active:bg-red-700'}`}
               onClick={handleSubmit}
               disabled={submitting}
             >
@@ -282,7 +282,7 @@ const OrderFormWidget = ({ onCancel, onSuccess }) => {
               )}
               Submit
             </button>
-            <button className="px-8 py-2 rounded bg-neutral-500 text-white font-bold text-base hover:bg-neutral-600" onClick={handleCancel}>
+            <button className="px-8 py-2 rounded cursor-pointer bg-neutral-500 !text-white font-bold text-base hover:bg-neutral-600" onClick={handleCancel}>
               Cancel
             </button>
           </div>

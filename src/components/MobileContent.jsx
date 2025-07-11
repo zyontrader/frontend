@@ -87,7 +87,7 @@ const MobileContent = () => {
         <div
           className={`flex-1 flex justify-center cursor-pointer py-2 rounded ${
             activeTab === "Watchlists"
-              ? "bg-green-500 text-neutral-800"
+              ? "bg-price-green text-neutral-800"
               : "text-neutral-400"
           }`}
           onClick={() => setActiveTab("Watchlists")}
@@ -99,7 +99,7 @@ const MobileContent = () => {
         <div
           className={`flex-1 flex justify-center cursor-pointer py-2 rounded ${
             activeTab === "Home"
-              ? "bg-green-500 text-neutral-800"
+              ? "bg-price-green text-neutral-800"
               : "text-neutral-400"
           }`}
           onClick={() => setActiveTab("Home")}
@@ -111,7 +111,7 @@ const MobileContent = () => {
         <div
           className={`flex-1 flex justify-center cursor-pointer py-2 rounded ${
             activeTab === "Analysis"
-              ? "bg-green-500 text-neutral-800"
+              ? "bg-price-green text-neutral-800"
               : "text-neutral-400"
           }`}
           onClick={() => setActiveTab("Analysis")}
@@ -123,7 +123,7 @@ const MobileContent = () => {
         <div
           className={`flex-1 flex justify-center cursor-pointer py-2 rounded ${
             activeTab === "OptionAnalysis"
-              ? "bg-green-500 text-neutral-800"
+              ? "bg-price-green text-neutral-800"
               : "text-neutral-400"
           }`}
           onClick={() => setActiveTab("OptionAnalysis")}
@@ -136,7 +136,7 @@ const MobileContent = () => {
           ref={overflowMenuRef}
           className={`flex justify-center cursor-pointer py-2 px-3 rounded relative ${
             showOverflowMenu
-              ? "bg-green-500 text-neutral-800"
+              ? "bg-price-green text-neutral-800"
               : "text-neutral-400"
           }`}
           onClick={() => setShowOverflowMenu(!showOverflowMenu)}

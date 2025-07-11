@@ -103,7 +103,7 @@ const WatchlistsWidget = () => {
         {watchlists.map((wl) => (
           <button
             key={wl.watchlistId}
-            className={`px-4 py-1 rounded ${
+            className={`px-4 py-1 rounded cursor-pointer ${
               wl.watchlistId === selectedWatchlistId
                 ? "bg-blue-700 !text-white"
                 : "bg-dark-bg-2 !text-gray-300"
