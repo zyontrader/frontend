@@ -16,16 +16,19 @@ import OptionsTrading from "./pages/OptionsTrading";
 import PaperTrading from "./pages/PaperTrading";
 import Team from "./pages/Team";
 import TermsAndConditions from "./pages/TermsAndConditions";
-import Faq from './components/Home/Faq';
-import Trader from './components/Trader/Trader';
-import './App.css'
+import Faq from "./components/Home/Faq";
+import Trader from "./components/Trader/Trader";
+import { useLocation } from "react-router";
+import "./App.css";
 function App() {
+  const location = useLocation();
+  const hideForPaths = ["/trader"];
 
-  console.log(import.meta.env.VITE_APP_API_BASE_URL)
+  console.log(import.meta.env.VITE_APP_API_BASE_URL);
   return (
     <div>
       {/* <Topbar /> */}
-      <Header />
+      {!hideForPaths.includes(location.pathname) && <Header />}
       <div className=" overflow-hidden relative">
         <button className="hidden lg:block z-50 bg-green-600 h-16 w-16  px-3 rounded-full fixed bottom-4 right-4 cursor-pointer">
           <a href="https://api.whatsapp.com/resolve/?deeplink=%2F91XXXXXXXXXX&not_found=1">
@@ -55,7 +58,7 @@ function App() {
           <Route path="/trader" element={<Trader />} />
         </Routes>
       </div>
-      <Footer />
+      {!hideForPaths.includes(location.pathname) && <Footer />}
     </div>
   );
 }
