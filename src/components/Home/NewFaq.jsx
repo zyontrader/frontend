@@ -182,7 +182,7 @@ function NewFaq() {
       <div className=" mt-16 px-6 lg:px-10 w-[100%] md:w-[70%] xl:w-[60%] mx-auto">
         {items.map(({ topic, qna }, index) => (
           <div key={index} className="mb-6">
-            <h2 className="text-2xl font-bold text-white mb-2 text-center">
+            <h2 className="text-3xl font-bold mb-2 text-center !text-emerald-500">
               {index + 1}. {topic}
             </h2>
             <Collapse
