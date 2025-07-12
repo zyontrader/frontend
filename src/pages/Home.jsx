@@ -1,16 +1,17 @@
+import { useState } from "react";
 import {
   FaBusinessTime,
   FaCalendarDay,
   FaMoneyBillAlt,
   FaTradeFederation,
 } from "react-icons/fa";
-import Faq from "../components/Home/Faq";
-import LoginModal from "../components/LoginModal";
-import { useState } from "react";
 import { useInView } from "react-intersection-observer";
-import Carousel from './../components/Home/Carousel';
-import CardSection from './../components/Home/CardSection';
-import TvSection from './../components/Home/TvSection';
+import UserLoginPopup from "../components/Account/UserLoginPopup";
+import Faq from "../components/Home/Faq";
+import CardSection from "./../components/Home/CardSection";
+import Carousel from "./../components/Home/Carousel";
+import TvSection from "./../components/Home/TvSection";
+import HeroSectionCarousel from "../components/Home/HeroSectionCarousel";
 
 function Home() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -26,8 +27,8 @@ function Home() {
   return (
     <div>
       <div className="bg-[linear-gradient(to_bottom,_rgb(0,0,10)_8%,_rgb(30,41,59)_15%)] lg:bg-[linear-gradient(to_bottom,_rgb(0,0,10)_10%,_rgb(30,41,49)_35%)] w-full h-full px-4 lg:px-30">
-        <div ref={heroRef} className="flex flex-col pt-36 lg:pt-50">
-          <h1
+        <div ref={heroRef} className="flex flex-col pt-36 lg:pt-30">
+          {/* <h1
             className={`text-3xl lg:text-[55px] uppercase !font-black text-emerald-500 ${
               heroInView
                 ? "animate__animated animate__bounceInDown animate__slow"
@@ -35,9 +36,10 @@ function Home() {
             }`}
           >
             Trade the market Not your savings
-          </h1>
+          </h1> */}
+          <HeroSectionCarousel />
 
-          <p
+          {/* <p
             className={`text-white text-xs lg:text-lg font-extrabold uppercase leading-8 ${
               heroInView
                 ? "animate__animated animate__bounceInLeft animate__slow"
@@ -47,10 +49,10 @@ function Home() {
             We fund disciplined traders with real capital and expert guidance{" "}
             <br />
             so they can grow without risking their own money
-          </p>
+          </p> */}
 
           <button
-            className={`w-60 p-4 mt-4 text-lg font-extrabold rounded-lg cursor-pointer 
+            className={`w-60 p-4 mt-4 text-lg font-extrabold rounded-lg cursor-pointer
     bg-white/10 border border-emerald-500 !text-emerald-400 
     backdrop-blur-md shadow-lg hover:bg-emerald-500 hover:!text-white transition-all duration-300
     ${
@@ -241,7 +243,7 @@ function Home() {
       <Carousel />
       <CardSection />
       <Faq />
-      <LoginModal open={isLoginOpen} onClose={() => setIsLoginOpen(false)} />
+      <UserLoginPopup isOpen={isLoginOpen} />
     </div>
   );
 }
