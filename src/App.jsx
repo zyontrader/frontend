@@ -1,7 +1,11 @@
+import { useEffect } from "react";
 import { FaWhatsapp } from "react-icons/fa";
-import { Route, Routes } from "react-router";
+import { Route, Routes, useLocation } from "react-router";
+import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import NewFaq from "./components/Home/NewFaq";
+import Trader from "./components/Trader/Trader";
 import AboutUs from "./pages/AboutUs";
 import AlgoTrading from "./pages/AlgoTrading";
 import ContactUs from "./pages/ContactUs";
@@ -16,26 +20,24 @@ import OptionsTrading from "./pages/OptionsTrading";
 import PaperTrading from "./pages/PaperTrading";
 import Team from "./pages/Team";
 import TermsAndConditions from "./pages/TermsAndConditions";
-import Faq from "./components/Home/Faq";
-import Trader from "./components/Trader/Trader";
-import { useLocation } from "react-router";
-import "./App.css";
 function App() {
-  const location = useLocation();
-  const hideForPaths = ["/trader"];
+  const { pathname } = useLocation();
 
+  const hideForPaths = ["/trader"];
   console.log(import.meta.env.VITE_APP_API_BASE_URL);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
   return (
     <div>
       {/* <Topbar /> */}
-      {!hideForPaths.includes(location.pathname) && <Header />}
-      <div className=" overflow-hidden relative">
+      {!hideForPaths.includes(pathname) && <Header />}
+      <div className=" overflow-x-hidden relative">
         <button className="hidden lg:block z-50 bg-green-600 h-16 w-16  px-3 rounded-full fixed bottom-4 right-4 cursor-pointer">
           <a href="https://api.whatsapp.com/resolve/?deeplink=%2F91XXXXXXXXXX&not_found=1">
             <FaWhatsapp className="text-white" size={40} />
           </a>
         </button>
-
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/funding-program" element={<FundingProgram />} />
@@ -49,7 +51,7 @@ function App() {
           <Route path="/developer-forum" element={<DeveloperForum />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/faq" element={<Faq />} />
+          <Route path="/faq" element={<NewFaq />} />
           <Route path="/team" element={<Team />} />
           <Route
             path="/terms-and-conditions"
@@ -58,7 +60,7 @@ function App() {
           <Route path="/trader" element={<Trader />} />
         </Routes>
       </div>
-      {!hideForPaths.includes(location.pathname) && <Footer />}
+      {!hideForPaths.includes(pathname) && <Footer />}
     </div>
   );
 }

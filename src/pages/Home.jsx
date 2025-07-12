@@ -12,6 +12,7 @@ import CardSection from "./../components/Home/CardSection";
 import Carousel from "./../components/Home/Carousel";
 import TvSection from "./../components/Home/TvSection";
 import HeroSectionCarousel from "../components/Home/HeroSectionCarousel";
+import NewFaq from "../components/Home/NewFaq";
 
 function Home() {
   const [isLoginOpen, setIsLoginOpen] = useState(false);
@@ -52,7 +53,7 @@ function Home() {
           </p> */}
 
           <button
-            className={`w-60 p-4 mt-4 text-lg font-extrabold rounded-lg cursor-pointer
+            className={`w-60 p-4 mt-6 text-lg font-extrabold rounded-lg cursor-pointer
     bg-white/10 border border-emerald-500 !text-emerald-400 
     backdrop-blur-md shadow-lg hover:bg-emerald-500 hover:!text-white transition-all duration-300
     ${
@@ -242,7 +243,8 @@ function Home() {
       <TvSection />
       <Carousel />
       <CardSection />
-      <Faq />
+      {/* <Faq /> */}
+      <NewFaq />
       <UserLoginPopup isOpen={isLoginOpen} />
     </div>
   );
